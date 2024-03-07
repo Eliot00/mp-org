@@ -3,6 +3,7 @@ import { invoke } from '@tauri-apps/api/tauri';
 import CodeMirror, { type ViewUpdate } from '@uiw/react-codemirror';
 import Grid from '@mui/material/Unstable_Grid2'
 import Button from '@mui/material/Button';
+import "./App.css"
 
 function App() {
   const [value, setValue] = useState("");
@@ -45,9 +46,10 @@ function App() {
 
               <CodeMirror height="100%" style={{ height: '100%' }} value={value} onChange={onChange} />
           </Grid>
-          <Grid xs={6} sx={{ height: '100%' }}>
-
-              <section style={{ height: '100%', width: '100%' }} id="org-preview" dangerouslySetInnerHTML={{ __html: htmlString }} />
+          <Grid xs={6} sx={{ height: 'calc(100vh - 54px)' }}>
+              <div className="preview-wrapper">
+              <section id="org-preview" dangerouslySetInnerHTML={{ __html: htmlString }} />
+              </div>
           </Grid>
       </Grid>
   );
