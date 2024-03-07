@@ -1,15 +1,15 @@
 import { useState, useCallback, useEffect } from "react";
-import { invoke } from '@tauri-apps/api/tauri';
-import CodeMirror, { type ViewUpdate } from '@uiw/react-codemirror';
-import Grid from '@mui/material/Unstable_Grid2'
-import Button from '@mui/material/Button';
-import "./App.css"
+import { invoke } from "@tauri-apps/api/tauri";
+import CodeMirror from "@uiw/react-codemirror";
+import Grid from "@mui/material/Unstable_Grid2";
+import Button from "@mui/material/Button";
+import "./App.css";
 
 function App() {
   const [value, setValue] = useState("");
   const [htmlString, setHtmlString] = useState("");
 
-  const onChange = useCallback((val: string, _viewUpdate: ViewUpdate) => {
+  const onChange = useCallback((val: string) => {
     setValue(val);
     renderHtml(val);
   }, []);
@@ -28,30 +28,42 @@ function App() {
   }, []);
 
   return (
-      <Grid container spacing={2} sx={{ height: '100%' }}>
-          <Grid xs={12}>
-        <Button variant="contained" onClick={async (e) => {
-            e.preventDefault()
+    <Grid container spacing={2} sx={{ height: "100%" }}>
+      <Grid xs={12}>
+        <Button
+          variant="contained"
+          onClick={async (e) => {
+            e.preventDefault();
 
-            const htmlStr = document.getElementById("org-preview")?.innerHTML
+            const htmlStr = document.getElementById("org-preview")?.innerHTML;
             if (htmlStr) {
-                const type = "text/html"
-                const blob = new Blob([htmlStr], { type })
-                const data = [new ClipboardItem({ [type]: blob })]
-                navigator.clipboard.write(data)
+              const type = "text/html";
+              const blob = new Blob([htmlStr], { type });
+              const data = [new ClipboardItem({ [type]: blob })];
+              navigator.clipboard.write(data);
             }
-        }}>Copy</Button>
-          </Grid>
-          <Grid xs={6} sx={{ height: 'calc(100vh - 54px)' }}>
-
-              <CodeMirror height="100%" style={{ height: '100%' }} value={value} onChange={onChange} />
-          </Grid>
-          <Grid xs={6} sx={{ height: 'calc(100vh - 54px)' }}>
-              <div className="preview-wrapper">
-              <section id="org-preview" dangerouslySetInnerHTML={{ __html: htmlString }} />
-              </div>
-          </Grid>
+          }}
+        >
+          Copy
+        </Button>
       </Grid>
+      <Grid xs={6} sx={{ height: "calc(100vh - 54px)" }}>
+        <CodeMirror
+          height="100%"
+          style={{ height: "100%" }}
+          value={value}
+          onChange={onChange}
+        />
+      </Grid>
+      <Grid xs={6} sx={{ height: "calc(100vh - 54px)" }}>
+        <div className="preview-wrapper">
+          <section
+            id="org-preview"
+            dangerouslySetInnerHTML={{ __html: htmlString }}
+          />
+        </div>
+      </Grid>
+    </Grid>
   );
 }
 

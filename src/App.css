@@ -1,18 +1,18 @@
 #org-preview {
-    width: 375px;
-    font-size: 14px;
-    box-sizing: border-box;
-    outline: none;
-    box-shadow: 0 0 60px rgba(0,0,0,.1);
-    word-break: break-all;
+  width: 375px;
+  font-size: 14px;
+  box-sizing: border-box;
+  outline: none;
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.1);
+  word-break: break-all;
 }
 
 .preview-wrapper {
-    height: 100%;
-    width: 100%;
-    max-height: 100%;
-    overflow: scroll;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  height: 100%;
+  width: 100%;
+  max-height: 100%;
+  overflow: scroll;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
