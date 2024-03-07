@@ -35,7 +35,7 @@ function App() {
           onClick={async (e) => {
             e.preventDefault();
 
-            const htmlStr = document.getElementById("org-preview")?.innerHTML;
+            const htmlStr = document.getElementById("org-output")?.innerHTML;
             if (htmlStr) {
               const type = "text/html";
               const blob = new Blob([htmlStr], { type });
@@ -57,10 +57,12 @@ function App() {
       </Grid>
       <Grid xs={6} sx={{ height: "calc(100vh - 54px)" }}>
         <div className="preview-wrapper">
-          <section
-            id="org-preview"
-            dangerouslySetInnerHTML={{ __html: htmlString }}
-          />
+          <div className="preview">
+            <section
+              id="org-output"
+              dangerouslySetInnerHTML={{ __html: htmlString }}
+            />
+          </div>
         </div>
       </Grid>
     </Grid>
