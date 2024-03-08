@@ -20,6 +20,7 @@ export default function Preview({ org }: Props) {
       const processor = unified()
         .use(parse)
         .use(uniorg2rehype)
+        // @ts-expect-error: Just type error, don't know why
         .use(highlight)
         .use(stringify);
 
