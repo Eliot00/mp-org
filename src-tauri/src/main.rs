@@ -1,6 +1,8 @@
 // Prevents additional console window on Windows in release, DO NOT REMOVE!!
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
+mod render;
+
 use std::{borrow::Cow, fs, sync::OnceLock};
 
 use anyhow::Result;
@@ -9,6 +11,8 @@ use orgize::Org;
 use regex::Regex;
 use serde::Deserialize;
 use xdg::BaseDirectories;
+
+use render::MyHtmlHandler;
 
 static CSS: OnceLock<Result<String>> = OnceLock::new();
 
@@ -20,7 +24,10 @@ struct Config {
 #[tauri::command]
 fn render_html(org_str: &str) -> String {
     let mut writer = Vec::new();
-    Org::parse(org_str).write_html(&mut writer).unwrap();
+    let mut handler = MyHtmlHandler::default();
+    Org::parse(org_str)
+        .write_html_custom(&mut writer, &mut handler)
+        .unwrap();
 
     let html = String::from_utf8(writer).unwrap();
 

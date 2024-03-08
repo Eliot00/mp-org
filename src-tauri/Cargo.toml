@@ -20,6 +20,7 @@ regex = "1.10.3"
 toml = "0.8.10"
 xdg = "2.5.2"
 anyhow = "1.0.80"
+prism-js = "0.1.2"
 
 [features]
 # This feature is used for production builds or when a dev server is not specified, DO NOT REMOVE!!
