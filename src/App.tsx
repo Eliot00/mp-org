@@ -1,30 +1,14 @@
-import { useState, useCallback, useEffect } from "react";
-import { invoke } from "@tauri-apps/api/tauri";
+import { useState, useCallback } from "react";
 import CodeMirror from "@uiw/react-codemirror";
 import Grid from "@mui/material/Unstable_Grid2";
 import Button from "@mui/material/Button";
-import "./App.css";
+import Preview from "./Preview";
 
 function App() {
   const [value, setValue] = useState("");
-  const [htmlString, setHtmlString] = useState("");
 
   const onChange = useCallback((val: string) => {
     setValue(val);
-    renderHtml(val);
-  }, []);
-
-  const renderHtml = async (orgStr: string) => {
-    try {
-      const htmlStr = await invoke<string>("render_html", { orgStr });
-      setHtmlString(htmlStr);
-    } catch (err) {
-      console.error("Error rendering HTML:", err);
-    }
-  };
-
-  useEffect(() => {
-    renderHtml(value);
   }, []);
 
   return (
@@ -56,14 +40,7 @@ function App() {
         />
       </Grid>
       <Grid xs={6} sx={{ height: "calc(100vh - 54px)" }}>
-        <div className="preview-wrapper">
-          <div className="preview">
-            <section
-              id="org-output"
-              dangerouslySetInnerHTML={{ __html: htmlString }}
-            />
-          </div>
-        </div>
+        <Preview org={value} />
       </Grid>
     </Grid>
   );
