@@ -4,6 +4,7 @@ import parse from "uniorg-parse";
 import uniorg2rehype from "uniorg-rehype";
 import highlight from "rehype-highlight";
 import stringify from "rehype-stringify";
+import katex from "rehype-katex";
 import { useEffect, useState } from "react";
 import { inlineContent } from "juice";
 import { defaultTheme } from "../assets/theme";
@@ -22,6 +23,7 @@ export default function Preview({ org }: Props) {
         .use(uniorg2rehype)
         // @ts-expect-error: Just type error, don't know why
         .use(highlight)
+        .use(katex)
         .use(stringify);
 
       processor.process(org).then((vfile: { value: string }) => {
