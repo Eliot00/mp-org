@@ -49,7 +49,7 @@ h4 {
     color: rgba(15, 76, 129, 1);
 }
 
-image {
+img {
     text-align: left;
     line-height: 1.75;
     font-family: -apple-system-font,BlinkMacSystemFont, Helvetica Neue, PingFang SC, Hiragino Sans GB , Microsoft YaHei UI , Microsoft YaHei ,Arial,sans-serif;
