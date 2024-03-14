@@ -7,13 +7,13 @@ import stringify from "rehype-stringify";
 import katex from "rehype-katex";
 import { useEffect, useState } from "react";
 import { inlineContent } from "juice";
-import { defaultTheme } from "../assets/theme";
 
 type Props = {
   org: string;
+  theme: string;
 };
 
-export default function Preview({ org }: Props) {
+export default function Preview({ org, theme }: Props) {
   const [html, setHtml] = useState("");
 
   useEffect(() => {
@@ -28,11 +28,11 @@ export default function Preview({ org }: Props) {
 
       processor.process(org).then((vfile: { value: string }) => {
         const htmlStr = vfile.value;
-        const inlined = inlineContent(htmlStr, defaultTheme);
+        const inlined = inlineContent(htmlStr, theme);
         setHtml(inlined);
       });
     }
-  }, [org]);
+  }, [org, theme]);
 
   return (
     <div className={classes.previewWrapper}>
