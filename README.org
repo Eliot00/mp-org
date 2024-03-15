@@ -3,3 +3,84 @@
 ** 简介
 将Org转换成HTML文档，一键复制粘贴到微信公众号，支持自定义CSS。
 
+** 使用
+
+*** 配置
+mp-org使用 =toml= 文件配置，配置文件位置：
+
+- Lin: ~/home/<user>/.config/mp-org/config.toml~
+- Win: ~C:\Users\<user>\AppData\Roaming\mp-org\config.toml~
+- Mac: ~/Users/<user>/Library/Application Support/mp-org/config.toml~
+
+*** 自定义主题
+
+mp-org允许配置多个主题，运行时按需选择。首先在平台特定的配置目录内新建 =theme= 文件夹，保存多个 =css= 文件，以 =Linux= 为例：
+
+#+BEGIN_EXAMPLE
+~/.confg/mp-org/themes
+
+theme1.css
+theme2.css
+#+END_EXAMPLE
+
+修改 ~config.toml~ 增加如下内容：
+
+#+BEGIN_SRC toml
+[theme.theme1]
+name = "主题1"
+path = "theme1.css"
+
+[theme.theme2]
+name = "主题2"
+path = "theme2.css"
+#+END_SRC
+
+重新运行mp-org即可。
+
+**** 主题格式
+
+具体的主题 =css= 格式如下：
+
+#+BEGIN_SRC css
+/* 一级标题样式 */
+h1 {
+}
+/* 二级标题样式 */
+h2 {
+}
+/* 三级标题样式 */
+h3 {
+}
+/* 四级标题样式 */
+h4 {
+}
+/* 图片样式 */
+image {
+}
+/* 引用样式 */
+blockquote {
+}
+/* 段落样式 */
+p {
+}
+/* 粗体样式 */
+strong {
+}
+/* 链接样式 */
+a {
+}
+/* 有序列表样式 */
+ol {
+}
+/* 无序列表样式 */
+ul {
+}
+/* 列表项样式 */
+li {
+}
+/* 行内代码样式 */
+code {
+}
+#+END_SRC
+
+代码块高亮使用了[[https://highlightjs.org/][highlightjs]]，可搜索highlightjs主题插入样式文件，具体可参考 ./src/assets/theme.ts 。
