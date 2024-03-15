@@ -2,10 +2,13 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 use std::collections::HashMap;
+use std::sync::OnceLock;
 use std::{fs, path::PathBuf};
 
 use dirs_next::config_dir;
 use serde::{Deserialize, Serialize};
+
+static CONFIG: OnceLock<Config> = OnceLock::new();
 
 #[derive(Deserialize)]
 struct Config {
@@ -24,20 +27,24 @@ struct ThemeOption {
     name: String,
 }
 
-fn get_config_path() -> PathBuf {
-    config_dir().unwrap().join("mp-org")
+fn get_or_init_config() -> &'static Config {
+    CONFIG.get_or_init(|| load_config().expect("Failed to load configuration"))
 }
 
-fn read_config() -> Result<Config, Box<dyn std::error::Error>> {
+fn load_config() -> Result<Config, Box<dyn std::error::Error>> {
     let config_path = get_config_path().join("config.toml");
     let config_content = fs::read_to_string(config_path)?;
     let config: Config = toml::from_str(&config_content)?;
     Ok(config)
 }
 
+fn get_config_path() -> PathBuf {
+    config_dir().unwrap().join("mp-org")
+}
+
 #[tauri::command]
 fn get_theme_content(theme_id: String) -> Result<String, String> {
-    let config = read_config().map_err(|e| e.to_string())?;
+    let config = get_or_init_config();
     let theme = config.theme.get(&theme_id).ok_or("Theme not found")?;
     let theme_content = fs::read_to_string(get_config_path().join("themes").join(&theme.path))
         .map_err(|e| e.to_string())?;
@@ -46,7 +53,7 @@ fn get_theme_content(theme_id: String) -> Result<String, String> {
 
 #[tauri::command]
 fn get_theme_options() -> Result<Vec<ThemeOption>, String> {
-    let config = read_config().map_err(|e| e.to_string())?;
+    let config = get_or_init_config();
     let themes = config
         .theme
         .iter()
