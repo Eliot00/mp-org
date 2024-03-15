@@ -13,19 +13,19 @@ type Props = {
   theme: string;
 };
 
+const processor = unified()
+  .use(parse)
+  .use(uniorg2rehype)
+  // @ts-expect-error: Just type error, don't know why
+  .use(highlight)
+  .use(katex)
+  .use(stringify);
+
 export default function Preview({ org, theme }: Props) {
   const [html, setHtml] = useState("");
 
   useEffect(() => {
     if (org) {
-      const processor = unified()
-        .use(parse)
-        .use(uniorg2rehype)
-        // @ts-expect-error: Just type error, don't know why
-        .use(highlight)
-        .use(katex)
-        .use(stringify);
-
       processor.process(org).then((vfile: { value: string }) => {
         const htmlStr = vfile.value;
         const inlined = inlineContent(htmlStr, theme);
