@@ -5,9 +5,10 @@ import Button from "@mui/material/Button";
 import Preview from "./Preview";
 import Stack from "@mui/material/Stack";
 import ThemeSelect from "./ThemeSelect";
-import { DEFAULT_THEME_ID } from "./constants.ts";
+import { DEFAULT_THEME_ID } from "./constants";
 import { defaultTheme } from "./assets/theme";
 import { invoke } from "@tauri-apps/api/tauri";
+import { convertLocalImageLink } from "./utils/image";
 
 function App() {
   const [value, setValue] = useState("");
@@ -30,6 +31,14 @@ function App() {
     <Grid container spacing={2} sx={{ height: "100%" }}>
       <Grid xs={12}>
         <Stack direction="row" spacing={2}>
+          <Button
+            onClick={async () => {
+              const newValue = await convertLocalImageLink(value);
+              setValue(newValue);
+            }}
+          >
+            上传本地图片
+          </Button>
           <ThemeSelect value={themeId} onChange={setThemeId} />
           <Button
             variant="contained"

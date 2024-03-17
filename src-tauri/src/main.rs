@@ -2,6 +2,7 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 use std::collections::HashMap;
+use std::process::Command;
 use std::sync::OnceLock;
 use std::{fs, path::PathBuf};
 
@@ -13,12 +14,20 @@ static CONFIG: OnceLock<Config> = OnceLock::new();
 #[derive(Deserialize)]
 struct Config {
     theme: HashMap<String, Theme>,
+
+    #[serde(default)]
+    image: Option<ImageConfig>,
 }
 
 #[derive(Deserialize)]
 struct Theme {
     name: String,
     path: String,
+}
+
+#[derive(Deserialize)]
+struct ImageConfig {
+    uploader: String,
 }
 
 #[derive(Serialize)]
@@ -65,11 +74,33 @@ fn get_theme_options() -> Result<Vec<ThemeOption>, String> {
     Ok(themes)
 }
 
+#[tauri::command]
+fn upload_image(file_path: String) -> Result<String, String> {
+    let config = get_or_init_config();
+    if let Some(ImageConfig { ref uploader }) = config.image {
+        let mut command = if cfg!(target_os = "windows") {
+            let mut cmd = Command::new("cmd");
+            cmd.args(["/C", uploader, &file_path]);
+            cmd
+        } else {
+            let mut cmd = Command::new(uploader);
+            cmd.arg(&file_path);
+            cmd
+        };
+        let output = command.output().map_err(|e| e.to_string())?;
+        let stdout = String::from_utf8_lossy(&output.stdout).to_string();
+        Ok(stdout)
+    } else {
+        Err("Image uploader not configured".to_string())
+    }
+}
+
 fn main() {
     tauri::Builder::default()
         .invoke_handler(tauri::generate_handler![
             get_theme_content,
-            get_theme_options
+            get_theme_options,
+            upload_image
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

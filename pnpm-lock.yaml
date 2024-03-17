@@ -47,6 +47,12 @@ dependencies:
   uniorg-rehype:
     specifier: ^1.1.1
     version: 1.1.1
+  uniorg-stringify:
+    specifier: ^1.1.1
+    version: 1.1.1
+  unist-util-visit:
+    specifier: ^5.0.0
+    version: 5.0.0
 
 devDependencies:
   '@tauri-apps/cli':
@@ -79,6 +85,9 @@ devDependencies:
   typescript-eslint:
     specifier: ^7.1.1
     version: 7.1.1(eslint@8.57.0)(typescript@5.3.3)
+  uniorg:
+    specifier: ^1.1.1
+    version: 1.1.1
   vite:
     specifier: ^5.0.0
     version: 5.1.5
@@ -3423,6 +3432,14 @@ packages:
       hastscript: 8.0.0
       unist-builder: 4.0.0
     dev: false
+
+  /uniorg-stringify@1.1.1:
+    resolution: {integrity: sha512-NNLtYJgwkoDovcfrC35ceB/i2Hq7ktOrGlEl6D7+2p9RUXJlV9hW0STfN5tKKmEfwvnpaKj4rW4+CmZYBQp62w==}
+    dev: false
+
+  /uniorg@1.1.1:
+    resolution: {integrity: sha512-HIEf+3EfyEOyYsY3exU0iMJoAofctRCGV4a7UOZf08VWChm2CjP6Vafdeeo3F/0s1v69RJMKBCLsJt8L8Xl0Og==}
+    dev: true
 
   /unist-builder@4.0.0:
     resolution: {integrity: sha512-wmRFnH+BLpZnTKpc5L7O67Kac89s9HMrtELpnNaE6TAobq5DTZZs5YaTQfAZBA9bFPECx2uVAPO31c+GVug8mg==}

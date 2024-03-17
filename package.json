@@ -24,7 +24,9 @@
     "rehype-stringify": "^10.0.0",
     "unified": "^11.0.4",
     "uniorg-parse": "^2.1.1",
-    "uniorg-rehype": "^1.1.1"
+    "uniorg-rehype": "^1.1.1",
+    "uniorg-stringify": "^1.1.1",
+    "unist-util-visit": "^5.0.0"
   },
   "devDependencies": {
     "@tauri-apps/cli": "^1",
@@ -37,6 +39,7 @@
     "prettier": "3.2.5",
     "typescript": "^5.0.2",
     "typescript-eslint": "^7.1.1",
+    "uniorg": "^1.1.1",
     "vite": "^5.0.0"
   }
 }

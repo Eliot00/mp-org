@@ -16,7 +16,6 @@ type Props = {
 const processor = unified()
   .use(parse)
   .use(uniorg2rehype)
-  // @ts-expect-error: Just type error, don't know why
   .use(highlight)
   .use(katex)
   .use(stringify);
@@ -26,8 +25,8 @@ export default function Preview({ org, theme }: Props) {
 
   useEffect(() => {
     if (org) {
-      processor.process(org).then((vfile: { value: string }) => {
-        const htmlStr = vfile.value;
+      processor.process(org).then((vfile) => {
+        const htmlStr = vfile.value.toString();
         const inlined = inlineContent(htmlStr, theme);
         setHtml(inlined);
       });
