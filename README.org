@@ -84,3 +84,14 @@ code {
 #+END_SRC
 
 代码块高亮使用了[[https://highlightjs.org/][highlightjs]]，可搜索highlightjs主题插入样式文件，具体可参考 ./src/assets/theme.ts 。
+
+*** 图片上传
+
+mp-org支持通过调用外部程序上传本地图片，如：
+
+#+BEGIN_SRC toml
+[image]
+uploader = "/path/to/uploader"
+#+END_SRC
+
+点击「上传本地图片」时，将以 ~uploader <local file path>~ 的形式调用uploader程序，并用 =stdout= 替换原有的本地图片路径。
