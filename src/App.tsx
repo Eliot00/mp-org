@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from "react";
+import { useState, useEffect } from "react";
 import CodeMirror from "@uiw/react-codemirror";
 import Grid from "@mui/material/Unstable_Grid2";
 import Button from "@mui/material/Button";
@@ -12,10 +12,6 @@ import { convertLocalImageLink } from "./utils/image";
 
 function App() {
   const [value, setValue] = useState("");
-
-  const onChange = useCallback((val: string) => {
-    setValue(val);
-  }, []);
 
   const [themeId, setThemeId] = useState(DEFAULT_THEME_ID);
   const [theme, setTheme] = useState(defaultTheme);
@@ -63,7 +59,7 @@ function App() {
           height="100%"
           style={{ height: "100%" }}
           value={value}
-          onChange={onChange}
+          onChange={setValue}
         />
       </Grid>
       <Grid xs={6} sx={{ height: "calc(100vh - 54px)" }}>
