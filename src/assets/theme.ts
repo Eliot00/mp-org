@@ -159,7 +159,6 @@ pre {
     font-size: 14px;
     overflow-x: auto;
     border-radius: 8px;
-    padding: 1em;
     margin: 10px 8px;
     margin-top: 0;
 }
@@ -175,13 +174,118 @@ code {
     word-break: break-all;
 }
 
+pre::before {
+    position: initial;
+    padding: initial;
+    content: '';
+    display: block;
+    height: 25px;
+    background-color: #fdf6e3;
+    background-image: url("https://doocs.oss-cn-shenzhen.aliyuncs.com/img/123.svg");
+    background-position: 14px 10px;
+    background-repeat: no-repeat;
+    background-size: 40px;
+}
+
 /*!
-  Theme: Default
-  Description: Original highlight.js style
-  Author: (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
+  Theme: Solarized Light
+  Author: Ethan Schoonover (modified by aramisgithub)
+  License: ~ MIT (or more permissive) [via base16-schemes-source]
   Maintainer: @highlightjs/core-team
-  Website: https://highlightjs.org/
-  License: see project LICENSE
-  Touched: 2021
-*/pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5px}.hljs{background:#f3f3f3;color:#444}.hljs-comment{color:#697070}.hljs-punctuation,.hljs-tag{color:#444a}.hljs-tag .hljs-attr,.hljs-tag .hljs-name{color:#444}.hljs-attribute,.hljs-doctag,.hljs-keyword,.hljs-meta .hljs-keyword,.hljs-name,.hljs-selector-tag{font-weight:700}.hljs-deletion,.hljs-number,.hljs-quote,.hljs-selector-class,.hljs-selector-id,.hljs-string,.hljs-template-tag,.hljs-type{color:#800}.hljs-section,.hljs-title{color:#800;font-weight:700}.hljs-link,.hljs-operator,.hljs-regexp,.hljs-selector-attr,.hljs-selector-pseudo,.hljs-symbol,.hljs-template-variable,.hljs-variable{color:#ab5656}.hljs-literal{color:#695}.hljs-addition,.hljs-built_in,.hljs-bullet,.hljs-code{color:#397300}.hljs-meta{color:#1f7199}.hljs-meta .hljs-string{color:#38a}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}
+  Version: 2021.09.0
+*/pre code.hljs {
+  display:block;
+  overflow-x:auto;
+  padding:1em
+}
+code.hljs {
+  padding:3px 5px
+}
+.hljs {
+  color:#586e75;
+  background:#fdf6e3
+}
+.hljs ::selection,
+.hljs::selection {
+  background-color:#93a1a1;
+  color:#586e75
+}
+.hljs-comment {
+  color:#839496
+}
+.hljs-tag {
+  color:#657b83
+}
+.hljs-operator,
+.hljs-punctuation,
+.hljs-subst {
+  color:#586e75
+}
+.hljs-operator {
+  opacity:.7
+}
+.hljs-bullet,
+.hljs-deletion,
+.hljs-name,
+.hljs-selector-tag,
+.hljs-template-variable,
+.hljs-variable {
+  color:#dc322f
+}
+.hljs-attr,
+.hljs-link,
+.hljs-literal,
+.hljs-number,
+.hljs-symbol,
+.hljs-variable.constant_ {
+  color:#cb4b16
+}
+.hljs-class .hljs-title,
+.hljs-title,
+.hljs-title.class_ {
+  color:#b58900
+}
+.hljs-strong {
+  font-weight:700;
+  color:#b58900
+}
+.hljs-addition,
+.hljs-code,
+.hljs-string,
+.hljs-title.class_.inherited__ {
+  color:#859900
+}
+.hljs-built_in,
+.hljs-doctag,
+.hljs-keyword.hljs-atrule,
+.hljs-quote,
+.hljs-regexp {
+  color:#2aa198
+}
+.hljs-attribute,
+.hljs-function .hljs-title,
+.hljs-section,
+.hljs-title.function_,
+.ruby .hljs-property {
+  color:#268bd2
+}
+.diff .hljs-meta,
+.hljs-keyword,
+.hljs-template-tag,
+.hljs-type {
+  color:#6c71c4
+}
+.hljs-emphasis {
+  color:#6c71c4;
+  font-style:italic
+}
+.hljs-meta,
+.hljs-meta .hljs-keyword,
+.hljs-meta .hljs-string {
+  color:#d33682
+}
+.hljs-meta .hljs-keyword,
+.hljs-meta-keyword {
+  font-weight:700
+}
 `;

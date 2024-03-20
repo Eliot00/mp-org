@@ -27,7 +27,9 @@ export default function Preview({ org, theme }: Props) {
     if (org) {
       processor.process(org).then((vfile) => {
         const htmlStr = vfile.value.toString();
-        const inlined = inlineContent(htmlStr, theme);
+        const inlined = inlineContent(htmlStr, theme, {
+          inlinePseudoElements: true,
+        });
         setHtml(inlined);
       });
     }
