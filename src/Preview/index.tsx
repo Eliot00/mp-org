@@ -7,6 +7,7 @@ import stringify from "rehype-stringify";
 import katex from "rehype-katex";
 import { useEffect, useState } from "react";
 import { inlineContent } from "juice";
+import linkToCite from "../utils/cite";
 
 type Props = {
   org: string;
@@ -18,6 +19,7 @@ const processor = unified()
   .use(uniorg2rehype)
   .use(highlight)
   .use(katex)
+  .use(linkToCite)
   .use(stringify);
 
 export default function Preview({ org, theme }: Props) {
