@@ -43,7 +43,7 @@ fn get_or_init_config() -> &'static Config {
 fn load_config() -> Result<Config, Box<dyn std::error::Error>> {
     let config_path = get_config_path().join("config.toml");
     let config_content = fs::read_to_string(config_path)?;
-    let config: Config = toml::from_str(&config_content)?;
+    let config: Config = basic_toml::from_str(&config_content)?;
     Ok(config)
 }
 
