@@ -4,13 +4,8 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
-import { invoke } from "@tauri-apps/api/tauri";
 import { DEFAULT_THEME_ID } from "../constants.ts";
-
-type ThemeOption = {
-  id: string;
-  name: string;
-};
+import { ThemeOption, getThemeOptions } from "../utils/theme.ts";
 
 type ThemeSelectProps = {
   value: string;
@@ -24,7 +19,7 @@ export default function ThemeSelect({ value, onChange }: ThemeSelectProps) {
 
   const [themeOptions, setThemeOptions] = useState<ThemeOption[]>([]);
   useEffect(() => {
-    invoke<ThemeOption[]>("get_theme_options").then(setThemeOptions);
+    getThemeOptions(setThemeOptions);
   }, []);
 
   return (

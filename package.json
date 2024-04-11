@@ -4,8 +4,10 @@
   "version": "0.5.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
+    "dev": "cross-env TARGET_PLATFORM=desktop vite",
+    "dev:browser": "cross-env TARGET_PLATFORM=browser vite",
+    "build": "cross-env TARGET_PLATFORM=desktop tsc && vite build",
+    "build:browser": "cross-env TARGET_PLATFORM=browser tsc && vite build",
     "preview": "vite preview",
     "tauri": "tauri",
     "prepare": "husky"
@@ -35,6 +37,7 @@
     "@types/react-dom": "^18.2.7",
     "@types/unist": "^3.0.2",
     "@vitejs/plugin-react": "^4.2.1",
+    "cross-env": "^7.0.3",
     "eslint": "^8.57.0",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.2",
@@ -42,6 +45,7 @@
     "typescript": "^5.0.2",
     "typescript-eslint": "^7.1.1",
     "uniorg": "^1.1.1",
+    "unplugin-preprocessor-directives": "^1.0.3",
     "vite": "^5.0.0",
     "vitest": "^1.4.0"
   }
