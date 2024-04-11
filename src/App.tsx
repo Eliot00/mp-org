@@ -7,8 +7,8 @@ import Stack from "@mui/material/Stack";
 import ThemeSelect from "./ThemeSelect";
 import { DEFAULT_THEME_ID } from "./constants";
 import { defaultTheme } from "./assets/theme";
-import { invoke } from "@tauri-apps/api/tauri";
 import { convertLocalImageLink } from "./utils/image";
+import { setThemeById } from "./utils/theme";
 
 function App() {
   const [value, setValue] = useState("");
@@ -19,9 +19,9 @@ function App() {
     if (themeId === DEFAULT_THEME_ID) {
       setTheme(defaultTheme);
     } else {
-      invoke<string>("get_theme_content", { themeId }).then(setTheme);
+      setThemeById(themeId, setTheme);
     }
-  }, [themeId]);
+  }, []);
 
   return (
     <Grid container spacing={2} sx={{ height: "100%" }}>
