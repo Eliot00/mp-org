@@ -4,10 +4,10 @@
   "version": "0.5.0",
   "type": "module",
   "scripts": {
-    "dev": "cross-env TARGET_PLATFORM=desktop vite",
-    "dev:browser": "cross-env TARGET_PLATFORM=browser vite",
-    "build": "cross-env TARGET_PLATFORM=desktop tsc && vite build",
-    "build:browser": "cross-env TARGET_PLATFORM=browser tsc && vite build",
+    "dev:desktop": "cross-env TARGET_PLATFORM=desktop vite",
+    "dev": "cross-env TARGET_PLATFORM=browser vite",
+    "build:desktop": "cross-env TARGET_PLATFORM=desktop tsc && vite build",
+    "build": "cross-env TARGET_PLATFORM=browser tsc && vite build",
     "preview": "vite preview",
     "tauri": "tauri",
     "prepare": "husky"
