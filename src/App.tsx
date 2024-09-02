@@ -9,6 +9,8 @@ import { DEFAULT_THEME_ID } from "./constants";
 import { defaultTheme } from "./assets/theme";
 import { convertLocalImageLink } from "./utils/image";
 import { setThemeById } from "./utils/theme";
+import { insertZeroWidthSpaces } from "./utils/spaces";
+import { Tooltip } from "@mui/material";
 
 function App() {
   const [value, setValue] = useState("");
@@ -37,6 +39,11 @@ function App() {
           >
             上传本地图片
           </Button>
+          <Tooltip title="orgmode中行内样式（如加粗）标记前后需要空格，按此键可为没加空格的标记自动添加零宽空格">
+            <Button onClick={() => setValue(insertZeroWidthSpaces)}>
+              自动补全零宽空格
+            </Button>
+          </Tooltip>
           <ThemeSelect value={themeId} onChange={setThemeId} />
           <Button
             variant="contained"
