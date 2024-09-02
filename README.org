@@ -95,3 +95,7 @@ uploader = "/path/to/uploader"
 #+END_SRC
 
 点击「上传本地图片」时，将以 ~uploader <local file path>~ 的形式调用uploader程序，并用 =stdout= 替换原有的本地图片路径。
+
+** 相关项目
+
++ [[https://codeberg.org/Elliot00/docube][docube]] :: org、markdown等文档管理工具
