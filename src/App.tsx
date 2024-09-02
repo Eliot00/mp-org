@@ -12,6 +12,8 @@ import { setThemeById } from "./utils/theme";
 
 function App() {
   const [value, setValue] = useState("");
+  console.log(value.length);
+  console.log(value.startsWith("​="));
 
   const [themeId, setThemeId] = useState(DEFAULT_THEME_ID);
   const [theme, setTheme] = useState(defaultTheme);

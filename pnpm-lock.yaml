@@ -13,16 +13,16 @@ importers:
         version: 11.11.4(@types/react@18.2.62)(react@18.2.0)
       '@emotion/styled':
         specifier: ^11.11.0
-        version: 11.11.0(@emotion/react@11.11.4)(@types/react@18.2.62)(react@18.2.0)
+        version: 11.11.0(@emotion/react@11.11.4(@types/react@18.2.62)(react@18.2.0))(@types/react@18.2.62)(react@18.2.0)
       '@mui/material':
         specifier: ^5.15.12
-        version: 5.15.12(@emotion/react@11.11.4)(@emotion/styled@11.11.0)(@types/react@18.2.62)(react-dom@18.2.0)(react@18.2.0)
+        version: 5.15.12(@emotion/react@11.11.4(@types/react@18.2.62)(react@18.2.0))(@emotion/styled@11.11.0(@emotion/react@11.11.4(@types/react@18.2.62)(react@18.2.0))(@types/react@18.2.62)(react@18.2.0))(@types/react@18.2.62)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@tauri-apps/api':
         specifier: ^1
         version: 1.5.3
       '@uiw/react-codemirror':
-        specifier: ^4.21.24
-        version: 4.21.24(@babel/runtime@7.24.0)(@codemirror/autocomplete@6.13.0)(@codemirror/language@6.10.1)(@codemirror/lint@6.5.0)(@codemirror/search@6.5.6)(@codemirror/state@6.4.1)(@codemirror/theme-one-dark@6.1.2)(@codemirror/view@6.25.0)(codemirror@6.0.1)(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^4.23.0
+        version: 4.23.0(@babel/runtime@7.24.0)(@codemirror/autocomplete@6.13.0(@codemirror/language@6.10.1)(@codemirror/state@6.4.1)(@codemirror/view@6.33.0)(@lezer/common@1.2.1))(@codemirror/language@6.10.1)(@codemirror/lint@6.5.0)(@codemirror/search@6.5.6)(@codemirror/state@6.4.1)(@codemirror/theme-one-dark@6.1.2)(@codemirror/view@6.33.0)(codemirror@6.0.1(@lezer/common@1.2.1))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       juice:
         specifier: ^10.0.0
         version: 10.0.0
@@ -42,17 +42,17 @@ importers:
         specifier: ^10.0.0
         version: 10.0.0
       unified:
-        specifier: ^11.0.4
-        version: 11.0.4
+        specifier: ^11.0.5
+        version: 11.0.5
       uniorg-parse:
-        specifier: ^2.1.1
-        version: 2.1.1
+        specifier: ^3.0.1
+        version: 3.0.1
       uniorg-rehype:
-        specifier: ^1.1.1
-        version: 1.1.1
+        specifier: ^1.2.0
+        version: 1.2.0
       uniorg-stringify:
-        specifier: ^1.1.1
-        version: 1.1.1
+        specifier: ^1.3.0
+        version: 1.3.0
       unist-util-visit:
         specifier: ^5.0.0
         version: 5.0.0
@@ -101,7 +101,7 @@ importers:
         version: 1.1.1
       unplugin-preprocessor-directives:
         specifier: ^1.0.3
-        version: 1.0.3(vite@5.1.5)
+        version: 1.0.3(esbuild@0.19.12)(vite@5.1.5)
       vite:
         specifier: ^5.0.0
         version: 5.1.5
@@ -237,6 +237,9 @@ packages:
   '@codemirror/commands@6.3.3':
     resolution: {integrity: sha512-dO4hcF0fGT9tu1Pj1D2PvGvxjeGkbC6RGcZw6Qs74TH+Ed1gw98jmUgd2axWvIZEqTeTuFrg1lEB1KV6cK9h1A==}
 
+  '@codemirror/commands@6.6.1':
+    resolution: {integrity: sha512-iBfKbyIoXS1FGdsKcZmnrxmbc8VcbMrSgD7AVrsnX+WyAYjmUDWvE93dt5D874qS4CCVu4O1JpbagHdXbbLiOw==}
+
   '@codemirror/language@6.10.1':
     resolution: {integrity: sha512-5GrXzrhq6k+gL5fjkAwt90nYDmjlzTIJV8THnxNFtNKWotMIlzzN+CpqxqwXOECnUdOndmSeWntVrVcv5axWRQ==}
 
@@ -254,6 +257,9 @@ packages:
 
   '@codemirror/view@6.25.0':
     resolution: {integrity: sha512-XnMGOm6qXB8znzCko0N7k97qZayVdvqpA0JebxA5fHtgBjC/XlCPhH9TK92TahsoCKMPQlaTCUep06Dwj/+GXQ==}
+
+  '@codemirror/view@6.33.0':
+    resolution: {integrity: sha512-AroaR3BvnjRW8fiZBalAaK+ZzB5usGgI014YKElYZvQdNH5ZIidHlO+cyf/2rWzyBFRkvG6VhiXeAEbC53P2YQ==}
 
   '@emotion/babel-plugin@11.11.0':
     resolution: {integrity: sha512-m4HEDZleaaCH+XgDDsPF15Ht6wTLsgDTeR3WYj9Q/k76JtWhrJjcP4+/XlG8LGT/Rol9qUfOIztXeA84ATpqPQ==}
@@ -518,6 +524,9 @@ packages:
 
   '@lezer/highlight@1.2.0':
     resolution: {integrity: sha512-WrS5Mw51sGrpqjlh3d4/fOwpEV2Hd3YOkp9DBt4k8XZQcoTHZFB7sx030A6OcahF4J1nDQAa3jXlTVVYH50IFA==}
+
+  '@lezer/highlight@1.2.1':
+    resolution: {integrity: sha512-Z5duk4RN/3zuVO7Jq0pGLJ3qynpxUVsh7IbUbGj88+uV2ApSAn6kWg2au3iJb+0Zi7kKtqffIESgNcRXWZWmSA==}
 
   '@lezer/lr@1.4.0':
     resolution: {integrity: sha512-Wst46p51km8gH0ZUmeNrtpRYmdlRHUpN1DQd3GFAyKANi8WVz8c2jHYTf1CVScFaCjQw1iO3ZZdqGDxQPRErTg==}
@@ -871,8 +880,8 @@ packages:
     resolution: {integrity: sha512-yTdHDQxY7cSoCcAtiBzVzxleJhkGB9NncSIyMYe2+OGON1ZsP9zOPws/Pqgopa65jvknOjlk/w7ulPlZ78PiLQ==}
     engines: {node: ^16.0.0 || >=18.0.0}
 
-  '@uiw/codemirror-extensions-basic-setup@4.21.24':
-    resolution: {integrity: sha512-TJYKlPxNAVJNclW1EGumhC7I02jpdMgBon4jZvb5Aju9+tUzS44IwORxUx8BD8ZtH2UHmYS+04rE3kLk/BtnCQ==}
+  '@uiw/codemirror-extensions-basic-setup@4.23.0':
+    resolution: {integrity: sha512-+k5nkRpUWGaHr1JWT8jcKsVewlXw5qBgSopm9LW8fZ6KnSNZBycz8kHxh0+WSvckmXEESGptkIsb7dlkmJT/hQ==}
     peerDependencies:
       '@codemirror/autocomplete': '>=6.0.0'
       '@codemirror/commands': '>=6.0.0'
@@ -882,8 +891,8 @@ packages:
       '@codemirror/state': '>=6.0.0'
       '@codemirror/view': '>=6.0.0'
 
-  '@uiw/react-codemirror@4.21.24':
-    resolution: {integrity: sha512-8zs5OuxbhikHocHBsVBMuW1vqlv4ccZAkt4rFwr7ebLP2Q6RwHsjpsR9GeGyAigAqonKRoeHugqF78UMrkaTgg==}
+  '@uiw/react-codemirror@4.23.0':
+    resolution: {integrity: sha512-MnqTXfgeLA3fsUUQjqjJgemEuNyoGALgsExVm0NQAllAAi1wfj+IoKFeK+h3XXMlTFRCFYOUh4AHDv0YXJLsOg==}
     peerDependencies:
       '@babel/runtime': '>=7.11.0'
       '@codemirror/state': '>=6.0.0'
@@ -2081,17 +2090,17 @@ packages:
   ufo@1.5.3:
     resolution: {integrity: sha512-Y7HYmWaFwPUmkoQCUIAYpKqkOf+SbVj/2fJJZ4RJMCfZp0rTGwRbzQD+HghfnhKOjL9E01okqz+ncJskGYfBNw==}
 
-  unified@11.0.4:
-    resolution: {integrity: sha512-apMPnyLjAX+ty4OrNap7yumyVAMlKx5IWU2wlzzUdYJO9A8f1p9m/gywF/GM2ZDFcjQPrx59Mc90KwmxsoklxQ==}
+  unified@11.0.5:
+    resolution: {integrity: sha512-xKvGhPWw3k84Qjh8bI3ZeJjqnyadK+GEFtazSfZv/rKeTkTjOJho6mFqh2SM96iIcZokxiOpg78GazTSg8+KHA==}
 
-  uniorg-parse@2.1.1:
-    resolution: {integrity: sha512-bMCppBMxRivlZTJF+2zs2IiOPzZ2/9+v85LcS2unAsDzZ246mudkqIq6FOlRHonUtVVrztJnjruYRHBCrTIb/w==}
+  uniorg-parse@3.0.1:
+    resolution: {integrity: sha512-Rw7ilfNnEYvh9xnLFs7lE++5tFhht6pCcwK59UvbbtpvDDJ6QsN+5iGia5amEEVgypHhsEFaws6oVPqYfXZYZA==}
 
-  uniorg-rehype@1.1.1:
-    resolution: {integrity: sha512-Px+0oxdyM3Yl5t159WSkrk6BABiVlKPm70PEtzKAwNQrbN8YzEujrZbYAn4GHN95KOdXEkedLfDP3RPjbQb6eQ==}
+  uniorg-rehype@1.2.0:
+    resolution: {integrity: sha512-VDCdfsnity1rraQBgPSlEq3zbBnHJO1oG+c7JxPBjPP5xX8UDBhEFY7oY+PyF7gz+uAHzExNKvij9WSCpSZT1w==}
 
-  uniorg-stringify@1.1.1:
-    resolution: {integrity: sha512-NNLtYJgwkoDovcfrC35ceB/i2Hq7ktOrGlEl6D7+2p9RUXJlV9hW0STfN5tKKmEfwvnpaKj4rW4+CmZYBQp62w==}
+  uniorg-stringify@1.3.0:
+    resolution: {integrity: sha512-fLYYF7KJFnaBIotsCGFTuC8DrZubPRDBwesoaI37AJU3evTa2zuNmJnmkR57AFLF+ES0npvcMMoZ0iAbHElbMQ==}
 
   uniorg@1.1.1:
     resolution: {integrity: sha512-HIEf+3EfyEOyYsY3exU0iMJoAofctRCGV4a7UOZf08VWChm2CjP6Vafdeeo3F/0s1v69RJMKBCLsJt8L8Xl0Og==}
@@ -2445,11 +2454,11 @@ snapshots:
       '@babel/helper-validator-identifier': 7.22.20
       to-fast-properties: 2.0.0
 
-  '@codemirror/autocomplete@6.13.0(@codemirror/language@6.10.1)(@codemirror/state@6.4.1)(@codemirror/view@6.25.0)(@lezer/common@1.2.1)':
+  '@codemirror/autocomplete@6.13.0(@codemirror/language@6.10.1)(@codemirror/state@6.4.1)(@codemirror/view@6.33.0)(@lezer/common@1.2.1)':
     dependencies:
       '@codemirror/language': 6.10.1
       '@codemirror/state': 6.4.1
-      '@codemirror/view': 6.25.0
+      '@codemirror/view': 6.33.0
       '@lezer/common': 1.2.1
 
   '@codemirror/commands@6.3.3':
@@ -2457,6 +2466,13 @@ snapshots:
       '@codemirror/language': 6.10.1
       '@codemirror/state': 6.4.1
       '@codemirror/view': 6.25.0
+      '@lezer/common': 1.2.1
+
+  '@codemirror/commands@6.6.1':
+    dependencies:
+      '@codemirror/language': 6.10.1
+      '@codemirror/state': 6.4.1
+      '@codemirror/view': 6.33.0
       '@lezer/common': 1.2.1
 
   '@codemirror/language@6.10.1':
@@ -2471,13 +2487,13 @@ snapshots:
   '@codemirror/lint@6.5.0':
     dependencies:
       '@codemirror/state': 6.4.1
-      '@codemirror/view': 6.25.0
+      '@codemirror/view': 6.33.0
       crelt: 1.0.6
 
   '@codemirror/search@6.5.6':
     dependencies:
       '@codemirror/state': 6.4.1
-      '@codemirror/view': 6.25.0
+      '@codemirror/view': 6.33.0
       crelt: 1.0.6
 
   '@codemirror/state@6.4.1': {}
@@ -2486,10 +2502,16 @@ snapshots:
     dependencies:
       '@codemirror/language': 6.10.1
       '@codemirror/state': 6.4.1
-      '@codemirror/view': 6.25.0
-      '@lezer/highlight': 1.2.0
+      '@codemirror/view': 6.33.0
+      '@lezer/highlight': 1.2.1
 
   '@codemirror/view@6.25.0':
+    dependencies:
+      '@codemirror/state': 6.4.1
+      style-mod: 4.1.2
+      w3c-keyname: 2.2.8
+
+  '@codemirror/view@6.33.0':
     dependencies:
       '@codemirror/state': 6.4.1
       style-mod: 4.1.2
@@ -2534,9 +2556,10 @@ snapshots:
       '@emotion/use-insertion-effect-with-fallbacks': 1.0.1(react@18.2.0)
       '@emotion/utils': 1.2.1
       '@emotion/weak-memoize': 0.3.1
-      '@types/react': 18.2.62
       hoist-non-react-statics: 3.3.2
       react: 18.2.0
+    optionalDependencies:
+      '@types/react': 18.2.62
 
   '@emotion/serialize@1.1.3':
     dependencies:
@@ -2548,7 +2571,7 @@ snapshots:
 
   '@emotion/sheet@1.2.2': {}
 
-  '@emotion/styled@11.11.0(@emotion/react@11.11.4)(@types/react@18.2.62)(react@18.2.0)':
+  '@emotion/styled@11.11.0(@emotion/react@11.11.4(@types/react@18.2.62)(react@18.2.0))(@types/react@18.2.62)(react@18.2.0)':
     dependencies:
       '@babel/runtime': 7.24.0
       '@emotion/babel-plugin': 11.11.0
@@ -2557,8 +2580,9 @@ snapshots:
       '@emotion/serialize': 1.1.3
       '@emotion/use-insertion-effect-with-fallbacks': 1.0.1(react@18.2.0)
       '@emotion/utils': 1.2.1
-      '@types/react': 18.2.62
       react: 18.2.0
+    optionalDependencies:
+      '@types/react': 18.2.62
 
   '@emotion/unitless@0.8.1': {}
 
@@ -2671,7 +2695,7 @@ snapshots:
       '@floating-ui/core': 1.6.0
       '@floating-ui/utils': 0.2.1
 
-  '@floating-ui/react-dom@2.0.8(react-dom@18.2.0)(react@18.2.0)':
+  '@floating-ui/react-dom@2.0.8(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
       '@floating-ui/dom': 1.6.3
       react: 18.2.0
@@ -2718,36 +2742,38 @@ snapshots:
     dependencies:
       '@lezer/common': 1.2.1
 
+  '@lezer/highlight@1.2.1':
+    dependencies:
+      '@lezer/common': 1.2.1
+
   '@lezer/lr@1.4.0':
     dependencies:
       '@lezer/common': 1.2.1
 
-  '@mui/base@5.0.0-beta.38(@types/react@18.2.62)(react-dom@18.2.0)(react@18.2.0)':
+  '@mui/base@5.0.0-beta.38(@types/react@18.2.62)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
       '@babel/runtime': 7.24.0
-      '@floating-ui/react-dom': 2.0.8(react-dom@18.2.0)(react@18.2.0)
+      '@floating-ui/react-dom': 2.0.8(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@mui/types': 7.2.13(@types/react@18.2.62)
       '@mui/utils': 5.15.12(@types/react@18.2.62)(react@18.2.0)
       '@popperjs/core': 2.11.8
-      '@types/react': 18.2.62
       clsx: 2.1.0
       prop-types: 15.8.1
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
+    optionalDependencies:
+      '@types/react': 18.2.62
 
   '@mui/core-downloads-tracker@5.15.12': {}
 
-  '@mui/material@5.15.12(@emotion/react@11.11.4)(@emotion/styled@11.11.0)(@types/react@18.2.62)(react-dom@18.2.0)(react@18.2.0)':
+  '@mui/material@5.15.12(@emotion/react@11.11.4(@types/react@18.2.62)(react@18.2.0))(@emotion/styled@11.11.0(@emotion/react@11.11.4(@types/react@18.2.62)(react@18.2.0))(@types/react@18.2.62)(react@18.2.0))(@types/react@18.2.62)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
       '@babel/runtime': 7.24.0
-      '@emotion/react': 11.11.4(@types/react@18.2.62)(react@18.2.0)
-      '@emotion/styled': 11.11.0(@emotion/react@11.11.4)(@types/react@18.2.62)(react@18.2.0)
-      '@mui/base': 5.0.0-beta.38(@types/react@18.2.62)(react-dom@18.2.0)(react@18.2.0)
+      '@mui/base': 5.0.0-beta.38(@types/react@18.2.62)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@mui/core-downloads-tracker': 5.15.12
-      '@mui/system': 5.15.12(@emotion/react@11.11.4)(@emotion/styled@11.11.0)(@types/react@18.2.62)(react@18.2.0)
+      '@mui/system': 5.15.12(@emotion/react@11.11.4(@types/react@18.2.62)(react@18.2.0))(@emotion/styled@11.11.0(@emotion/react@11.11.4(@types/react@18.2.62)(react@18.2.0))(@types/react@18.2.62)(react@18.2.0))(@types/react@18.2.62)(react@18.2.0)
       '@mui/types': 7.2.13(@types/react@18.2.62)
       '@mui/utils': 5.15.12(@types/react@18.2.62)(react@18.2.0)
-      '@types/react': 18.2.62
       '@types/react-transition-group': 4.4.10
       clsx: 2.1.0
       csstype: 3.1.3
@@ -2755,53 +2781,61 @@ snapshots:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       react-is: 18.2.0
-      react-transition-group: 4.4.5(react-dom@18.2.0)(react@18.2.0)
+      react-transition-group: 4.4.5(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+    optionalDependencies:
+      '@emotion/react': 11.11.4(@types/react@18.2.62)(react@18.2.0)
+      '@emotion/styled': 11.11.0(@emotion/react@11.11.4(@types/react@18.2.62)(react@18.2.0))(@types/react@18.2.62)(react@18.2.0)
+      '@types/react': 18.2.62
 
   '@mui/private-theming@5.15.12(@types/react@18.2.62)(react@18.2.0)':
     dependencies:
       '@babel/runtime': 7.24.0
       '@mui/utils': 5.15.12(@types/react@18.2.62)(react@18.2.0)
-      '@types/react': 18.2.62
       prop-types: 15.8.1
       react: 18.2.0
+    optionalDependencies:
+      '@types/react': 18.2.62
 
-  '@mui/styled-engine@5.15.11(@emotion/react@11.11.4)(@emotion/styled@11.11.0)(react@18.2.0)':
+  '@mui/styled-engine@5.15.11(@emotion/react@11.11.4(@types/react@18.2.62)(react@18.2.0))(@emotion/styled@11.11.0(@emotion/react@11.11.4(@types/react@18.2.62)(react@18.2.0))(@types/react@18.2.62)(react@18.2.0))(react@18.2.0)':
     dependencies:
       '@babel/runtime': 7.24.0
       '@emotion/cache': 11.11.0
-      '@emotion/react': 11.11.4(@types/react@18.2.62)(react@18.2.0)
-      '@emotion/styled': 11.11.0(@emotion/react@11.11.4)(@types/react@18.2.62)(react@18.2.0)
       csstype: 3.1.3
       prop-types: 15.8.1
       react: 18.2.0
+    optionalDependencies:
+      '@emotion/react': 11.11.4(@types/react@18.2.62)(react@18.2.0)
+      '@emotion/styled': 11.11.0(@emotion/react@11.11.4(@types/react@18.2.62)(react@18.2.0))(@types/react@18.2.62)(react@18.2.0)
 
-  '@mui/system@5.15.12(@emotion/react@11.11.4)(@emotion/styled@11.11.0)(@types/react@18.2.62)(react@18.2.0)':
+  '@mui/system@5.15.12(@emotion/react@11.11.4(@types/react@18.2.62)(react@18.2.0))(@emotion/styled@11.11.0(@emotion/react@11.11.4(@types/react@18.2.62)(react@18.2.0))(@types/react@18.2.62)(react@18.2.0))(@types/react@18.2.62)(react@18.2.0)':
     dependencies:
       '@babel/runtime': 7.24.0
-      '@emotion/react': 11.11.4(@types/react@18.2.62)(react@18.2.0)
-      '@emotion/styled': 11.11.0(@emotion/react@11.11.4)(@types/react@18.2.62)(react@18.2.0)
       '@mui/private-theming': 5.15.12(@types/react@18.2.62)(react@18.2.0)
-      '@mui/styled-engine': 5.15.11(@emotion/react@11.11.4)(@emotion/styled@11.11.0)(react@18.2.0)
+      '@mui/styled-engine': 5.15.11(@emotion/react@11.11.4(@types/react@18.2.62)(react@18.2.0))(@emotion/styled@11.11.0(@emotion/react@11.11.4(@types/react@18.2.62)(react@18.2.0))(@types/react@18.2.62)(react@18.2.0))(react@18.2.0)
       '@mui/types': 7.2.13(@types/react@18.2.62)
       '@mui/utils': 5.15.12(@types/react@18.2.62)(react@18.2.0)
-      '@types/react': 18.2.62
       clsx: 2.1.0
       csstype: 3.1.3
       prop-types: 15.8.1
       react: 18.2.0
+    optionalDependencies:
+      '@emotion/react': 11.11.4(@types/react@18.2.62)(react@18.2.0)
+      '@emotion/styled': 11.11.0(@emotion/react@11.11.4(@types/react@18.2.62)(react@18.2.0))(@types/react@18.2.62)(react@18.2.0)
+      '@types/react': 18.2.62
 
   '@mui/types@7.2.13(@types/react@18.2.62)':
-    dependencies:
+    optionalDependencies:
       '@types/react': 18.2.62
 
   '@mui/utils@5.15.12(@types/react@18.2.62)(react@18.2.0)':
     dependencies:
       '@babel/runtime': 7.24.0
       '@types/prop-types': 15.7.11
-      '@types/react': 18.2.62
       prop-types: 15.8.1
       react: 18.2.0
       react-is: 18.2.0
+    optionalDependencies:
+      '@types/react': 18.2.62
 
   '@nodelib/fs.scandir@2.1.5':
     dependencies:
@@ -2962,7 +2996,7 @@ snapshots:
 
   '@types/unist@3.0.2': {}
 
-  '@typescript-eslint/eslint-plugin@7.1.1(@typescript-eslint/parser@7.1.1)(eslint@8.57.0)(typescript@5.3.3)':
+  '@typescript-eslint/eslint-plugin@7.1.1(@typescript-eslint/parser@7.1.1(eslint@8.57.0)(typescript@5.3.3))(eslint@8.57.0)(typescript@5.3.3)':
     dependencies:
       '@eslint-community/regexpp': 4.10.0
       '@typescript-eslint/parser': 7.1.1(eslint@8.57.0)(typescript@5.3.3)
@@ -2977,6 +3011,7 @@ snapshots:
       natural-compare: 1.4.0
       semver: 7.6.0
       ts-api-utils: 1.2.1(typescript@5.3.3)
+    optionalDependencies:
       typescript: 5.3.3
     transitivePeerDependencies:
       - supports-color
@@ -2989,6 +3024,7 @@ snapshots:
       '@typescript-eslint/visitor-keys': 7.1.1
       debug: 4.3.4
       eslint: 8.57.0
+    optionalDependencies:
       typescript: 5.3.3
     transitivePeerDependencies:
       - supports-color
@@ -3005,6 +3041,7 @@ snapshots:
       debug: 4.3.4
       eslint: 8.57.0
       ts-api-utils: 1.2.1(typescript@5.3.3)
+    optionalDependencies:
       typescript: 5.3.3
     transitivePeerDependencies:
       - supports-color
@@ -3021,6 +3058,7 @@ snapshots:
       minimatch: 9.0.3
       semver: 7.6.0
       ts-api-utils: 1.2.1(typescript@5.3.3)
+    optionalDependencies:
       typescript: 5.3.3
     transitivePeerDependencies:
       - supports-color
@@ -3044,24 +3082,24 @@ snapshots:
       '@typescript-eslint/types': 7.1.1
       eslint-visitor-keys: 3.4.3
 
-  '@uiw/codemirror-extensions-basic-setup@4.21.24(@codemirror/autocomplete@6.13.0)(@codemirror/commands@6.3.3)(@codemirror/language@6.10.1)(@codemirror/lint@6.5.0)(@codemirror/search@6.5.6)(@codemirror/state@6.4.1)(@codemirror/view@6.25.0)':
+  '@uiw/codemirror-extensions-basic-setup@4.23.0(@codemirror/autocomplete@6.13.0(@codemirror/language@6.10.1)(@codemirror/state@6.4.1)(@codemirror/view@6.33.0)(@lezer/common@1.2.1))(@codemirror/commands@6.3.3)(@codemirror/language@6.10.1)(@codemirror/lint@6.5.0)(@codemirror/search@6.5.6)(@codemirror/state@6.4.1)(@codemirror/view@6.33.0)':
     dependencies:
-      '@codemirror/autocomplete': 6.13.0(@codemirror/language@6.10.1)(@codemirror/state@6.4.1)(@codemirror/view@6.25.0)(@lezer/common@1.2.1)
+      '@codemirror/autocomplete': 6.13.0(@codemirror/language@6.10.1)(@codemirror/state@6.4.1)(@codemirror/view@6.33.0)(@lezer/common@1.2.1)
       '@codemirror/commands': 6.3.3
       '@codemirror/language': 6.10.1
       '@codemirror/lint': 6.5.0
       '@codemirror/search': 6.5.6
       '@codemirror/state': 6.4.1
-      '@codemirror/view': 6.25.0
+      '@codemirror/view': 6.33.0
 
-  '@uiw/react-codemirror@4.21.24(@babel/runtime@7.24.0)(@codemirror/autocomplete@6.13.0)(@codemirror/language@6.10.1)(@codemirror/lint@6.5.0)(@codemirror/search@6.5.6)(@codemirror/state@6.4.1)(@codemirror/theme-one-dark@6.1.2)(@codemirror/view@6.25.0)(codemirror@6.0.1)(react-dom@18.2.0)(react@18.2.0)':
+  '@uiw/react-codemirror@4.23.0(@babel/runtime@7.24.0)(@codemirror/autocomplete@6.13.0(@codemirror/language@6.10.1)(@codemirror/state@6.4.1)(@codemirror/view@6.33.0)(@lezer/common@1.2.1))(@codemirror/language@6.10.1)(@codemirror/lint@6.5.0)(@codemirror/search@6.5.6)(@codemirror/state@6.4.1)(@codemirror/theme-one-dark@6.1.2)(@codemirror/view@6.33.0)(codemirror@6.0.1(@lezer/common@1.2.1))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
       '@babel/runtime': 7.24.0
       '@codemirror/commands': 6.3.3
       '@codemirror/state': 6.4.1
       '@codemirror/theme-one-dark': 6.1.2
-      '@codemirror/view': 6.25.0
-      '@uiw/codemirror-extensions-basic-setup': 4.21.24(@codemirror/autocomplete@6.13.0)(@codemirror/commands@6.3.3)(@codemirror/language@6.10.1)(@codemirror/lint@6.5.0)(@codemirror/search@6.5.6)(@codemirror/state@6.4.1)(@codemirror/view@6.25.0)
+      '@codemirror/view': 6.33.0
+      '@uiw/codemirror-extensions-basic-setup': 4.23.0(@codemirror/autocomplete@6.13.0(@codemirror/language@6.10.1)(@codemirror/state@6.4.1)(@codemirror/view@6.33.0)(@lezer/common@1.2.1))(@codemirror/commands@6.3.3)(@codemirror/language@6.10.1)(@codemirror/lint@6.5.0)(@codemirror/search@6.5.6)(@codemirror/state@6.4.1)(@codemirror/view@6.33.0)
       codemirror: 6.0.1(@lezer/common@1.2.1)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -3278,13 +3316,13 @@ snapshots:
 
   codemirror@6.0.1(@lezer/common@1.2.1):
     dependencies:
-      '@codemirror/autocomplete': 6.13.0(@codemirror/language@6.10.1)(@codemirror/state@6.4.1)(@codemirror/view@6.25.0)(@lezer/common@1.2.1)
-      '@codemirror/commands': 6.3.3
+      '@codemirror/autocomplete': 6.13.0(@codemirror/language@6.10.1)(@codemirror/state@6.4.1)(@codemirror/view@6.33.0)(@lezer/common@1.2.1)
+      '@codemirror/commands': 6.6.1
       '@codemirror/language': 6.10.1
       '@codemirror/lint': 6.5.0
       '@codemirror/search': 6.5.6
       '@codemirror/state': 6.4.1
-      '@codemirror/view': 6.25.0
+      '@codemirror/view': 6.33.0
     transitivePeerDependencies:
       - '@lezer/common'
 
@@ -4148,7 +4186,7 @@ snapshots:
 
   react-refresh@0.14.0: {}
 
-  react-transition-group@4.4.5(react-dom@18.2.0)(react@18.2.0):
+  react-transition-group@4.4.5(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       '@babel/runtime': 7.24.0
       dom-helpers: 5.2.1
@@ -4189,7 +4227,7 @@ snapshots:
     dependencies:
       '@types/hast': 3.0.4
       hast-util-to-html: 9.0.0
-      unified: 11.0.4
+      unified: 11.0.5
 
   resolve-from@4.0.0: {}
 
@@ -4360,9 +4398,10 @@ snapshots:
 
   typescript-eslint@7.1.1(eslint@8.57.0)(typescript@5.3.3):
     dependencies:
-      '@typescript-eslint/eslint-plugin': 7.1.1(@typescript-eslint/parser@7.1.1)(eslint@8.57.0)(typescript@5.3.3)
+      '@typescript-eslint/eslint-plugin': 7.1.1(@typescript-eslint/parser@7.1.1(eslint@8.57.0)(typescript@5.3.3))(eslint@8.57.0)(typescript@5.3.3)
       '@typescript-eslint/parser': 7.1.1(eslint@8.57.0)(typescript@5.3.3)
       eslint: 8.57.0
+    optionalDependencies:
       typescript: 5.3.3
     transitivePeerDependencies:
       - supports-color
@@ -4371,7 +4410,7 @@ snapshots:
 
   ufo@1.5.3: {}
 
-  unified@11.0.4:
+  unified@11.0.5:
     dependencies:
       '@types/unist': 3.0.2
       bail: 2.0.2
@@ -4381,18 +4420,18 @@ snapshots:
       trough: 2.2.0
       vfile: 6.0.1
 
-  uniorg-parse@2.1.1:
+  uniorg-parse@3.0.1:
     dependencies:
       unist-builder: 4.0.0
       vfile: 6.0.1
       vfile-location: 5.0.2
 
-  uniorg-rehype@1.1.1:
+  uniorg-rehype@1.2.0:
     dependencies:
       hastscript: 8.0.0
       unist-builder: 4.0.0
 
-  uniorg-stringify@1.1.1: {}
+  uniorg-stringify@1.3.0: {}
 
   uniorg@1.1.1: {}
 
@@ -4433,11 +4472,13 @@ snapshots:
       unist-util-is: 6.0.0
       unist-util-visit-parents: 6.0.1
 
-  unplugin-preprocessor-directives@1.0.3(vite@5.1.5):
+  unplugin-preprocessor-directives@1.0.3(esbuild@0.19.12)(vite@5.1.5):
     dependencies:
       '@ampproject/remapping': 2.3.0
       magic-string: 0.30.8
       unplugin: 1.10.1
+    optionalDependencies:
+      esbuild: 0.19.12
       vite: 5.1.5
 
   unplugin@1.10.1:
