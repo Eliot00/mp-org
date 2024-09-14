@@ -1564,7 +1564,7 @@ dependencies = [
 
 [[package]]
 name = "mp-org"
-version = "0.6.0"
+version = "0.6.1"
 dependencies = [
  "basic-toml",
  "dirs-next",
