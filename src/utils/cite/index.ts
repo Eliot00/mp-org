@@ -24,7 +24,23 @@ const linkToCite: Plugin = () => {
           .map((child) => (child.type === "text" ? child.value : ""))
           .join("");
         links.push({ text, href: node.properties.href, index: linkIndex });
-        node.properties.href = `#cite-ref-${linkIndex}`;
+
+        const supNode = {
+          type: "element",
+          tagName: "sup",
+          properties: {},
+          children: [
+            {
+              type: "text",
+              value: `[${linkIndex}]`,
+            },
+          ],
+        };
+
+        node.tagName = "cite";
+        node.properties = {};
+        node.children = [{ type: "text", value: text }, supNode];
+
         linkIndex += 1;
       }
     });
