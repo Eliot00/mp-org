@@ -25,7 +25,7 @@ const linkToCite: Plugin = () => {
           .join("");
         links.push({ text, href: node.properties.href, index: linkIndex });
 
-        const supNode = {
+        const supNode: Element = {
           type: "element",
           tagName: "sup",
           properties: {},
