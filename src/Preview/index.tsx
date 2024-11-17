@@ -16,7 +16,24 @@ type Props = {
 
 const processor = unified()
   .use(parse)
-  .use(uniorg2rehype)
+  .use(uniorg2rehype, {
+    imageFilenameExtensions: [
+      "png",
+      "jpeg",
+      "jpg",
+      "gif",
+      "tiff",
+      "tif",
+      "xbm",
+      "xpm",
+      "pbm",
+      "pgm",
+      "ppm",
+      "pnm",
+      "svg",
+      "webp",
+    ],
+  })
   .use(highlight)
   .use(katex)
   .use(linkToCite)
