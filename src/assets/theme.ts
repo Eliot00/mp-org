@@ -187,6 +187,10 @@ pre::before {
     background-size: 40px;
 }
 
+[aria-hidden="true"] {
+  display: none;
+}
+
 /*!
   Theme: Solarized Light
   Author: Ethan Schoonover (modified by aramisgithub)
