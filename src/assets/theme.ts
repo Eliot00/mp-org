@@ -122,34 +122,32 @@ a {
     text-decoration: none;
 }
 
+/* 样式化有序列表 <ol> */
 ol {
-    text-align: left;
-    line-height: 1.75;
-    font-family: -apple-system-font,BlinkMacSystemFont, Helvetica Neue, PingFang SC, Hiragino Sans GB , Microsoft YaHei UI , Microsoft YaHei ,Arial,sans-serif;
-    font-size: 14px;
-    margin-left: 0;
-    padding-left: 1em;
-    color: #3f3f3f;
+    list-style-type: decimal; /* 使用数字作为列表项标记 */
+    margin: 20px 0;           /* 上下间距 */
+    padding-left: 40px;       /* 左边距 */
+    font-family: Arial, sans-serif; /* 字体 */
+    font-size: 16px;          /* 字体大小 */
+    color: #333;              /* 文字颜色 */
 }
 
+ol li {
+    margin: 8px 0;           /* 列表项的上下间距 */
+}
+
+/* 样式化无序列表 <ul> */
 ul {
-    text-align: left;
-    line-height: 1.75;
-    font-family: -apple-system-font,BlinkMacSystemFont, Helvetica Neue, PingFang SC, Hiragino Sans GB , Microsoft YaHei UI , Microsoft YaHei ,Arial,sans-serif;
-    font-size: 14px;
-    margin-left: 0;
-    padding-left: 1em;
-    list-style: circle;
-    color: #3f3f3f;
+    list-style-type: disc;    /* 使用实心圆作为列表项标记 */
+    margin: 20px 0;           /* 上下间距 */
+    padding-left: 40px;       /* 左边距 */
+    font-family: Arial, sans-serif; /* 字体 */
+    font-size: 16px;          /* 字体大小 */
+    color: #333;              /* 文字颜色 */
 }
 
-li {
-    text-align: left;
-    line-height: 1.75;
-    text-indent: -1em;
-    display: block;
-    margin: 0.2em 8px;
-    color: #3f3f3f;
+ul li {
+    margin: 8px 0;           /* 列表项的上下间距 */
 }
 
 pre {
