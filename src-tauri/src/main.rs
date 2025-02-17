@@ -97,6 +97,7 @@ fn upload_image(file_path: String) -> Result<String, String> {
 
 fn main() {
     tauri::Builder::default()
+        .plugin(tauri_plugin_shell::init())
         .invoke_handler(tauri::generate_handler![
             get_theme_content,
             get_theme_options,

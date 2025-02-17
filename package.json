@@ -16,7 +16,8 @@
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.15.12",
-    "@tauri-apps/api": "^1",
+    "@tauri-apps/api": "^2.2.0",
+    "@tauri-apps/plugin-shell": "~2",
     "@uiw/react-codemirror": "^4.23.0",
     "juice": "^10.0.0",
     "react": "^18.2.0",
@@ -31,7 +32,7 @@
     "unist-util-visit": "^5.0.0"
   },
   "devDependencies": {
-    "@tauri-apps/cli": "^1",
+    "@tauri-apps/cli": "^2.2.7",
     "@types/hast": "^3.0.4",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",

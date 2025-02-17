@@ -2,7 +2,7 @@ import { unified, type Transformer } from "unified";
 import parse from "uniorg-parse";
 import { uniorgStringify } from "uniorg-stringify";
 import { visit } from "unist-util-visit";
-import { invoke } from "@tauri-apps/api/tauri";
+import { invoke } from "@tauri-apps/api/core";
 import type { Link } from "uniorg";
 
 const imageExtensions = /\.(png|jpe?g|gif|svg|bmp|webp)$/i;
