@@ -22,7 +22,7 @@
             ];
 
             buildInputs = [
-              webkitgtk
+              webkitgtk_4_1
             ];
           };
         };

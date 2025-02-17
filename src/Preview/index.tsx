@@ -1,13 +1,12 @@
-import classes from "./preview.module.css";
 import { unified } from "unified";
 import parse from "uniorg-parse";
 import uniorg2rehype from "uniorg-rehype";
 import highlight from "rehype-highlight";
 import stringify from "rehype-stringify";
 import katex from "rehype-katex";
-import { useEffect, useState } from "react";
 import { inlineContent } from "juice";
-import linkToCite from "../utils/cite";
+import linkToCite from "~/utils/cite";
+import { createSignal, createEffect } from "solid-js";
 
 type Props = {
   org: string;
@@ -39,26 +38,24 @@ const processor = unified()
   .use(linkToCite)
   .use(stringify);
 
-export default function Preview({ org, theme }: Props) {
-  const [html, setHtml] = useState("");
+export default function Preview(props: Props) {
+  const [html, setHtml] = createSignal("");
 
-  useEffect(() => {
-    if (org) {
-      processor.process(org).then((vfile) => {
+  createEffect(() => {
+    if (props.org) {
+      processor.process(props.org).then((vfile) => {
         const htmlStr = vfile.value.toString();
-        const inlined = inlineContent(htmlStr, theme, {
+        const inlined = inlineContent(htmlStr, props.theme, {
           inlinePseudoElements: true,
         });
         setHtml(inlined);
       });
     }
-  }, [org, theme]);
+  });
 
   return (
-    <div className={classes.previewWrapper}>
-      <div className={classes.preview}>
-        <section id="org-output" dangerouslySetInnerHTML={{ __html: html }} />
-      </div>
+    <div class="h-full min-w-[375px] text-sm box-border outline-none shadow-md break-all overflow-auto">
+      <section id="org-output" innerHTML={html()} />
     </div>
   );
 }

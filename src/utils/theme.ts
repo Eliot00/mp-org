@@ -13,8 +13,11 @@ export type ThemeOption = {
   name: string;
 };
 
-export function getThemeOptions(callback: (options: ThemeOption[]) => void) {
+export async function getThemeOptions(
+  callback: (options: ThemeOption[]) => void,
+) {
   // #if TARGET_PLATFORM == 'desktop'
-  invoke<ThemeOption[]>("get_theme_options").then(callback);
+  const options = await invoke<ThemeOption[]>("get_theme_options");
+  callback(options);
   // #endif
 }
