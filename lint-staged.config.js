@@ -1,8 +1,5 @@
-const formatCommand = "prettier --write";
-
 const config = {
-  "*.{js,jsx,ts,tsx}": [formatCommand, "eslint --fix"],
-  "*.css": [formatCommand],
+	"*.{js,jsx,ts,tsx}": ["biome check --write"],
 };
 
 export default config;
