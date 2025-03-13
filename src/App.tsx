@@ -5,11 +5,11 @@ import {
 } from "solid-codemirror";
 import Preview from "./Preview";
 import ThemeSelect from "./ThemeSelect";
-import { DEFAULT_THEME_ID } from "./constants";
-import { defaultTheme } from "./assets/theme";
-import { convertLocalImageLink } from "./utils/image";
-import { setThemeById } from "./utils/theme";
-import { insertZeroWidthSpaces } from "./utils/spaces";
+import { DEFAULT_THEME_ID } from "~/constants";
+import { defaultTheme } from "~/assets/theme";
+import { convertLocalImageLink } from "~/utils/image";
+import { setThemeById } from "~/utils/theme";
+import { insertZeroWidthSpaces } from "~/utils/spaces";
 import { createEffect, createSignal } from "solid-js";
 import { Button } from "~/components/ui/button";
 import {
@@ -18,6 +18,13 @@ import {
   TooltipTrigger,
 } from "~/components/ui/tooltip";
 import type { TooltipTriggerProps } from "@kobalte/core/tooltip";
+import { toaster } from "@kobalte/core";
+import {
+  Toast,
+  ToastContent,
+  ToastList,
+  ToastRegion,
+} from "~/components/ui/toast";
 
 import "./App.css";
 
@@ -85,6 +92,12 @@ function App() {
               const blob = new Blob([htmlStr], { type });
               const data = [new ClipboardItem({ [type]: blob })];
               navigator.clipboard.write(data);
+
+              toaster.show((props) => (
+                <Toast toastId={props.toastId}>
+                  <ToastContent>复制成功</ToastContent>
+                </Toast>
+              ));
             }
           }}
         >
@@ -97,6 +110,9 @@ function App() {
           <Preview org={value()} theme={theme()} />
         </div>
       </div>
+      <ToastRegion>
+        <ToastList />
+      </ToastRegion>
     </main>
   );
 }
