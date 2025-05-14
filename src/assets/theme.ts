@@ -151,6 +151,7 @@ ul li {
 }
 
 pre {
+    margin: 1.5rem 8px;
     padding: 1rem;
     border-radius: 0.5rem;
     overflow: auto;
