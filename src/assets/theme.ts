@@ -156,6 +156,16 @@ pre {
     overflow: auto;
 }
 
+code:not(pre code) {
+  background-color: rgba(255, 235, 235, 0.6);
+  padding: 0.2em 0.4em;
+  margin: 0;
+  font-size: 85%;
+  border-radius: 6px;
+  font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
+  color: #E05252;
+}
+
 [aria-hidden="true"] {
   display: none;
 }
