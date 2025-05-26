@@ -2,7 +2,7 @@ import rehypeShiki from "@shikijs/rehype";
 import { inlineContent } from "juice";
 import katex from "rehype-katex";
 import stringify from "rehype-stringify";
-import { createEffect, createSignal } from "solid-js";
+import { createDeferred, createEffect, createSignal } from "solid-js";
 import { unified } from "unified";
 import parse from "uniorg-parse";
 import uniorg2rehype from "uniorg-rehype";
@@ -40,19 +40,30 @@ const processor = unified()
 	.use(linkToCite)
 	.use(stringify);
 
+async function toHtml(orgStr: string, theme: string) {
+	if (!orgStr) {
+		return null;
+	}
+
+	const vfile = await processor.process(orgStr);
+	const htmlStr = vfile.value.toString();
+	return inlineContent(htmlStr, theme, {
+		inlinePseudoElements: true,
+	});
+}
+
 export default function Preview(props: Props) {
 	const [html, setHtml] = createSignal("");
+	const deferredOrgString = createDeferred(() => props.org, {
+		timeoutMs: 1000,
+	});
 
 	createEffect(() => {
-		if (props.org) {
-			processor.process(props.org).then((vfile) => {
-				const htmlStr = vfile.value.toString();
-				const inlined = inlineContent(htmlStr, props.theme, {
-					inlinePseudoElements: true,
-				});
+		toHtml(deferredOrgString(), props.theme).then((inlined) => {
+			if (inlined) {
 				setHtml(inlined);
-			});
-		}
+			}
+		});
 	});
 
 	return (
