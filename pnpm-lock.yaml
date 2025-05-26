@@ -51,14 +51,14 @@ importers:
         specifier: ^11.0.5
         version: 11.0.5
       uniorg-parse:
-        specifier: ^3.0.1
-        version: 3.0.1
+        specifier: ^3.2.0
+        version: 3.2.0
       uniorg-rehype:
-        specifier: ^1.2.0
-        version: 1.2.0
+        specifier: ^2.2.0
+        version: 2.2.0
       uniorg-stringify:
-        specifier: ^1.3.0
-        version: 1.3.0
+        specifier: ^1.4.0
+        version: 1.4.0
       unist-util-visit:
         specifier: ^5.0.0
         version: 5.0.0
@@ -97,8 +97,8 @@ importers:
         specifier: ^5.7.3
         version: 5.7.3
       uniorg:
-        specifier: ^1.2.0
-        version: 1.2.0
+        specifier: ^1.3.0
+        version: 1.3.0
       unocss:
         specifier: ^65.5.0
         version: 65.5.0(postcss@8.5.2)(vite@6.1.0(@types/node@22.13.4)(jiti@2.4.2)(yaml@2.7.0))(vue@3.5.13(typescript@5.7.3))
@@ -1604,6 +1604,9 @@ packages:
   hastscript@8.0.0:
     resolution: {integrity: sha512-dMOtzCEd3ABUeSIISmrETiKuyydk1w0pa+gE/uormcTpSYuaNJPbX1NU3JLyscSLjwAQM8bWMhhIlnCqnRvDTw==}
 
+  hastscript@9.0.1:
+    resolution: {integrity: sha512-g7df9rMFX/SPi34tyGCyUBREQoKkapwdY/T04Qn9TDWfHhAYt4/I0gMVirzK5wEzeUqIjEB+LXC/ypb7Aqno5w==}
+
   html-encoding-sniffer@4.0.0:
     resolution: {integrity: sha512-Y22oTqIU4uuPgEemfz7NDJz6OeKf12Lsu+QC+s3BVpda64lTiMYCyGwg5ki4vFxkMwQdeZDl2adZoqUgdFuTgQ==}
     engines: {node: '>=18'}
@@ -2330,17 +2333,17 @@ packages:
   unified@11.0.5:
     resolution: {integrity: sha512-xKvGhPWw3k84Qjh8bI3ZeJjqnyadK+GEFtazSfZv/rKeTkTjOJho6mFqh2SM96iIcZokxiOpg78GazTSg8+KHA==}
 
-  uniorg-parse@3.0.1:
-    resolution: {integrity: sha512-Rw7ilfNnEYvh9xnLFs7lE++5tFhht6pCcwK59UvbbtpvDDJ6QsN+5iGia5amEEVgypHhsEFaws6oVPqYfXZYZA==}
+  uniorg-parse@3.2.0:
+    resolution: {integrity: sha512-eMvDz7X3dl5+wG/UsYQ9+HxDedYobW/+ftGY9uVM+lZlqENsu8zLgveUm0gEnmAWgY5YCSOsSGwAi+d6x6KTeA==}
 
-  uniorg-rehype@1.2.0:
-    resolution: {integrity: sha512-VDCdfsnity1rraQBgPSlEq3zbBnHJO1oG+c7JxPBjPP5xX8UDBhEFY7oY+PyF7gz+uAHzExNKvij9WSCpSZT1w==}
+  uniorg-rehype@2.2.0:
+    resolution: {integrity: sha512-cdJphFD8UnKDuHn/P3aE+xXgI/O43MmDkExyecRPD9ZEw9GMB2fLOJgG3n8eoQItUYTzYkfGSY4MaKXOZwKokg==}
 
-  uniorg-stringify@1.3.0:
-    resolution: {integrity: sha512-fLYYF7KJFnaBIotsCGFTuC8DrZubPRDBwesoaI37AJU3evTa2zuNmJnmkR57AFLF+ES0npvcMMoZ0iAbHElbMQ==}
+  uniorg-stringify@1.4.0:
+    resolution: {integrity: sha512-MVIH/VKtzzKDCOZ16H7XEtcTQX1WFNMZ4yjJtHrBgIwFxoHp4Pt520NgVunL4vHHXIdwymBQ4erL5C88vRv3GA==}
 
-  uniorg@1.2.0:
-    resolution: {integrity: sha512-KfyIRo6aK9YoadJfQD2ImnXOqcNN7vRVzpmxuLsVMC5HSv+X8PrJZRw/cFlYJEvzKxx74LITU9GNScl5fcwa4A==}
+  uniorg@1.3.0:
+    resolution: {integrity: sha512-4FC5ExQJDJAb19Y+Nn7TnRo/Efsio9NwI29A6dZArSY24udp2WH2Gm4DwIi9nqlWsXE8E68i50YlZ+CkDSblTA==}
 
   unist-builder@4.0.0:
     resolution: {integrity: sha512-wmRFnH+BLpZnTKpc5L7O67Kac89s9HMrtELpnNaE6TAobq5DTZZs5YaTQfAZBA9bFPECx2uVAPO31c+GVug8mg==}
@@ -4332,6 +4335,14 @@ snapshots:
       property-information: 6.4.1
       space-separated-tokens: 2.0.2
 
+  hastscript@9.0.1:
+    dependencies:
+      '@types/hast': 3.0.4
+      comma-separated-tokens: 2.0.3
+      hast-util-parse-selector: 4.0.0
+      property-information: 7.1.0
+      space-separated-tokens: 2.0.2
+
   html-encoding-sniffer@4.0.0:
     dependencies:
       whatwg-encoding: 3.1.1
@@ -5044,20 +5055,30 @@ snapshots:
       trough: 2.2.0
       vfile: 6.0.1
 
-  uniorg-parse@3.0.1:
+  uniorg-parse@3.2.0:
     dependencies:
+      unified: 11.0.5
+      uniorg: 1.3.0
       unist-builder: 4.0.0
       vfile: 6.0.1
       vfile-location: 5.0.2
 
-  uniorg-rehype@1.2.0:
+  uniorg-rehype@2.2.0:
     dependencies:
-      hastscript: 8.0.0
+      '@types/hast': 3.0.4
+      hastscript: 9.0.1
+      unified: 11.0.5
+      uniorg: 1.3.0
       unist-builder: 4.0.0
 
-  uniorg-stringify@1.3.0: {}
+  uniorg-stringify@1.4.0:
+    dependencies:
+      unified: 11.0.5
+      uniorg: 1.3.0
 
-  uniorg@1.2.0: {}
+  uniorg@1.3.0:
+    dependencies:
+      '@types/unist': 3.0.2
 
   unist-builder@4.0.0:
     dependencies:

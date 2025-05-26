@@ -15,24 +15,7 @@ type Props = {
 
 const processor = unified()
 	.use(parse)
-	.use(uniorg2rehype, {
-		imageFilenameExtensions: [
-			"png",
-			"jpeg",
-			"jpg",
-			"gif",
-			"tiff",
-			"tif",
-			"xbm",
-			"xpm",
-			"pbm",
-			"pgm",
-			"ppm",
-			"pnm",
-			"svg",
-			"webp",
-		],
-	})
+	.use(uniorg2rehype)
 	.use(rehypeShiki, {
 		theme: "everforest-light",
 	})
