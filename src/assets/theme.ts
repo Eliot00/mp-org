@@ -1,52 +1,58 @@
 export const defaultTheme = `
+:root {
+    --org-brand-color: rgba(15, 76, 129, 1);
+}
 h1 {
-    text-align: center;
-    line-height: 1.75;
-    font-family: -apple-system-font,BlinkMacSystemFont, Helvetica Neue, PingFang SC, Hiragino Sans GB , Microsoft YaHei UI , Microsoft YaHei ,Arial,sans-serif;
+    display: table;
+    padding: 0 1em;
+    border-bottom: 2px solid var(--org-brand-color);
+    margin: 2em auto 1em;
+    color: hsl(var(--foreground));
     font-size: 1.2em;
     font-weight: bold;
-    display: table;
-    margin: 2em auto 1em;
-    margin-top: 2em;
+    text-align: center;
     padding: 0 1em;
-    border-bottom: 2px solid rgba(15, 76, 129, 1);
-    color: #3f3f3f;
-    margin-top: 0;
 }
 
 h2 {
-    text-align: center;
-    line-height: 1.75;
-    font-family: -apple-system-font,BlinkMacSystemFont, Helvetica Neue, PingFang SC, Hiragino Sans GB , Microsoft YaHei UI , Microsoft YaHei ,Arial,sans-serif;
+    display: table;
+    padding: 0 0.2em;
+    margin: 4em auto 2em;
+    color: #fff;
+    background: var(--org-brand-color);
     font-size: 1.2em;
     font-weight: bold;
-    display: table;
-    margin: 4em auto 2em;
-    padding: 0 0.2em;
-    background: rgba(15, 76, 129, 1);
-    color: #fff;
+    text-align: center;
 }
 
 h3 {
-    text-align: left;
-    line-height: 1.2;
-    font-family: -apple-system-font,BlinkMacSystemFont, Helvetica Neue, PingFang SC, Hiragino Sans GB , Microsoft YaHei UI , Microsoft YaHei ,Arial,sans-serif;
+    padding-left: 8px;
+    border-left: 3px solid var(--org-brand-color);
+    margin: 2em 8px 0.75em 0;
+    color: hsl(var(--foreground));
     font-size: 1.1em;
     font-weight: bold;
-    margin: 2em 8px 0.75em 0;
-    padding-left: 8px;
-    border-left: 3px solid rgba(15, 76, 129, 1);
-    color: #3f3f3f;
+    line-height: 1.2;
 }
 
 h4 {
-    text-align: left;
-    line-height: 1.75;
-    font-family: -apple-system-font,BlinkMacSystemFont, Helvetica Neue, PingFang SC, Hiragino Sans GB , Microsoft YaHei UI , Microsoft YaHei ,Arial,sans-serif;
+    margin: 2em 8px 0.5em;
+    color: var(--org-brand-color);
     font-size: 1em;
     font-weight: bold;
-    margin: 2em 8px 0.5em;
-    color: rgba(15, 76, 129, 1);
+}
+
+h5 {
+  margin: 1.5em 8px 0.5em;
+  color: var(--org-brand-color);
+  font-size: 1em;
+  font-weight: bold;
+}
+
+h6 {
+  margin: 1.5em 8px 0.5em;
+  font-size: 1em;
+  color: var(--org-brand-color);
 }
 
 img {
@@ -61,65 +67,44 @@ img {
 }
 
 blockquote {
-    text-align: left;
-    line-height: 1.75;
-    font-family: -apple-system-font,BlinkMacSystemFont, Helvetica Neue, PingFang SC, Hiragino Sans GB , Microsoft YaHei UI , Microsoft YaHei ,Arial,sans-serif;
-    font-size: 14px;
     font-style: normal;
-    border-left: none;
     padding: 1em;
-    border-radius: 8px;
+    border-left: 4px solid var(--org-brand-color);
+    border-radius: 6px;
     color: rgba(0,0,0,0.5);
     background: #f7f7f7;
-    margin: 2em 8px;
+    margin-bottom: 1em;
 }
 
 blockquote > p {
-    text-align: left;
-    line-height: 1.75;
-    font-family: -apple-system-font,BlinkMacSystemFont, Helvetica Neue, PingFang SC, Hiragino Sans GB , Microsoft YaHei UI , Microsoft YaHei ,Arial,sans-serif;
+    display: block;
     font-size: 1em;
     letter-spacing: 0.1em;
-    color: rgb(80, 80, 80);
-    display: block;
+    color: hsl(var(--foreground));
 }
 
 p {
-    text-align: left;
-    line-height: 1.75;
-    font-family: -apple-system-font,BlinkMacSystemFont, Helvetica Neue, PingFang SC, Hiragino Sans GB , Microsoft YaHei UI , Microsoft YaHei ,Arial,sans-serif;
-    font-size: 14px;
     margin: 1.5em 8px;
     letter-spacing: 0.1em;
-    color: #3f3f3f;
+    color: hsl(var(--foreground));
 }
 
 hr {
-    text-align: left;
-    line-height: 1.75;
-    font-family: -apple-system-font,BlinkMacSystemFont, Helvetica Neue, PingFang SC, Hiragino Sans GB , Microsoft YaHei UI , Microsoft YaHei ,Arial,sans-serif;
-    font-size: 14px;
-    border-style: solid;
-    border-width: 1px 0 0;
-    border-color: rgba(0,0,0,0.1);
-    -webkit-transform-origin: 0 0;
-    -webkit-transform: scale(1, 0.5);
-    transform-origin: 0 0;
-    transform: scale(1, 0.5);
+  border-style: solid;
+  border-width: 2px 0 0;
+  border-color: rgba(0,0,0,0.1);
+  --webkit-transform-origin: 0 0;
+  --webkit-transform: scale(1, 0.5);
+  transform-origin: 0 0;
+  transform: scale(1, 0.5);
+  height: 0.4em;
+  margin: 1.5em 0;
 }
 
 strong {
-    text-align: left;
-    line-height: 1.75;
-    color: rgba(15, 76, 129, 1);
+    color: var(--org-brand-color);
     font-weight: bold;
-}
-
-a {
-    text-align: left;
-    line-height: 1.75;
-    color: #576b95;
-    text-decoration: none;
+    font-size: inherit;
 }
 
 /* 样式化有序列表 <ol> */
