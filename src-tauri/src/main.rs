@@ -11,7 +11,7 @@ use serde::{Deserialize, Serialize};
 
 static CONFIG: OnceLock<Config> = OnceLock::new();
 
-#[derive(Deserialize)]
+#[derive(Deserialize, Default)]
 struct Config {
     theme: HashMap<String, Theme>,
 
@@ -37,7 +37,7 @@ struct ThemeOption {
 }
 
 fn get_or_init_config() -> &'static Config {
-    CONFIG.get_or_init(|| load_config().expect("Failed to load configuration"))
+    CONFIG.get_or_init(|| load_config().unwrap_or_default())
 }
 
 fn load_config() -> Result<Config, Box<dyn std::error::Error>> {
