@@ -1,39 +1,10 @@
-import rehypeShiki from "@shikijs/rehype";
-import { inlineContent } from "juice";
-import katex from "rehype-katex";
-import stringify from "rehype-stringify";
 import { createDeferred, createEffect, createSignal } from "solid-js";
-import { unified } from "unified";
-import parse from "uniorg-parse";
-import uniorg2rehype from "uniorg-rehype";
-import linkToCite from "~/utils/cite";
+import { renderOrgToHtml } from "~/utils/render";
 
 type Props = {
 	org: string;
 	theme: string;
 };
-
-const processor = unified()
-	.use(parse)
-	.use(uniorg2rehype)
-	.use(rehypeShiki, {
-		theme: "everforest-light",
-	})
-	.use(katex)
-	.use(linkToCite)
-	.use(stringify);
-
-async function toHtml(orgStr: string, theme: string) {
-	if (!orgStr) {
-		return null;
-	}
-
-	const vfile = await processor.process(orgStr);
-	const htmlStr = vfile.value.toString();
-	return inlineContent(htmlStr, theme, {
-		inlinePseudoElements: true,
-	});
-}
 
 export default function Preview(props: Props) {
 	const [html, setHtml] = createSignal("");
@@ -42,7 +13,7 @@ export default function Preview(props: Props) {
 	});
 
 	createEffect(() => {
-		toHtml(deferredOrgString(), props.theme).then((inlined) => {
+		renderOrgToHtml(deferredOrgString(), props.theme).then((inlined) => {
 			if (inlined) {
 				setHtml(inlined);
 			}

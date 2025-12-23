@@ -9,6 +9,7 @@
     "build:desktop": "cross-env TARGET_PLATFORM=desktop tsc && vite build",
     "build": "cross-env TARGET_PLATFORM=browser tsc && vite build",
     "preview": "vite preview",
+    "test": "vitest run",
     "tauri": "tauri",
     "prepare": "husky"
   },

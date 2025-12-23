@@ -1,13 +1,10 @@
 export const defaultTheme = `
-:root {
-    --org-brand-color: rgba(15, 76, 129, 1);
-}
 h1 {
     display: table;
     padding: 0 1em;
-    border-bottom: 2px solid var(--org-brand-color);
+    border-bottom: 2px solid rgba(15, 76, 129, 1);
     margin: 2em auto 1em;
-    color: hsl(var(--foreground));
+    color: #0a0a0a;
     font-size: 1.2em;
     font-weight: bold;
     text-align: center;
@@ -19,7 +16,7 @@ h2 {
     padding: 0 0.2em;
     margin: 4em auto 2em;
     color: #fff;
-    background: var(--org-brand-color);
+    background: rgba(15, 76, 129, 1);
     font-size: 1.2em;
     font-weight: bold;
     text-align: center;
@@ -27,9 +24,9 @@ h2 {
 
 h3 {
     padding-left: 8px;
-    border-left: 3px solid var(--org-brand-color);
+    border-left: 3px solid rgba(15, 76, 129, 1);
     margin: 2em 8px 0.75em 0;
-    color: hsl(var(--foreground));
+    color: #0a0a0a;
     font-size: 1.1em;
     font-weight: bold;
     line-height: 1.2;
@@ -37,14 +34,14 @@ h3 {
 
 h4 {
     margin: 2em 8px 0.5em;
-    color: var(--org-brand-color);
+    color: rgba(15, 76, 129, 1);
     font-size: 1em;
     font-weight: bold;
 }
 
 h5 {
   margin: 1.5em 8px 0.5em;
-  color: var(--org-brand-color);
+  color: rgba(15, 76, 129, 1);
   font-size: 1em;
   font-weight: bold;
 }
@@ -52,7 +49,7 @@ h5 {
 h6 {
   margin: 1.5em 8px 0.5em;
   font-size: 1em;
-  color: var(--org-brand-color);
+  color: rgba(15, 76, 129, 1);
 }
 
 img {
@@ -69,7 +66,7 @@ img {
 blockquote {
     font-style: normal;
     padding: 1em;
-    border-left: 4px solid var(--org-brand-color);
+    border-left: 4px solid rgba(15, 76, 129, 1);
     border-radius: 6px;
     color: rgba(0,0,0,0.5);
     background: #f7f7f7;
@@ -80,21 +77,19 @@ blockquote > p {
     display: block;
     font-size: 1em;
     letter-spacing: 0.1em;
-    color: hsl(var(--foreground));
+    color: #0a0a0a;
 }
 
 p {
     margin: 1.5em 8px;
     letter-spacing: 0.1em;
-    color: hsl(var(--foreground));
+    color: #0a0a0a;
 }
 
 hr {
   border-style: solid;
   border-width: 2px 0 0;
   border-color: rgba(0,0,0,0.1);
-  --webkit-transform-origin: 0 0;
-  --webkit-transform: scale(1, 0.5);
   transform-origin: 0 0;
   transform: scale(1, 0.5);
   height: 0.4em;
@@ -102,7 +97,7 @@ hr {
 }
 
 strong {
-    color: var(--org-brand-color);
+    color: rgba(15, 76, 129, 1);
     font-weight: bold;
     font-size: inherit;
 }
@@ -136,9 +131,9 @@ ul li {
 }
 
 pre {
-    margin: 1.5rem 8px;
-    padding: 1rem;
-    border-radius: 0.5rem;
+    margin: 24px 8px;
+    padding: 16px;
+    border-radius: 8px;
     overflow: auto;
 }
 
