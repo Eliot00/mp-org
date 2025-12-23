@@ -86,18 +86,33 @@ function App() {
 					onClick={async (e) => {
 						e.preventDefault();
 
-						const htmlStr = document.getElementById("org-output")?.innerHTML;
-						if (htmlStr) {
-							const type = "text/html";
-							const blob = new Blob([htmlStr], { type });
-							const data = [new ClipboardItem({ [type]: blob })];
-							navigator.clipboard.write(data);
+						const outputDiv = document.getElementById("org-output");
+						if (outputDiv) {
+							outputDiv.focus();
+							window.getSelection()?.removeAllRanges();
 
-							toaster.show((props) => (
-								<Toast toastId={props.toastId}>
-									<ToastContent>复制成功</ToastContent>
-								</Toast>
-							));
+							try {
+								const temp = outputDiv.innerHTML;
+								const plainText = outputDiv.textContent ?? "";
+								const clipboardItem = new ClipboardItem({
+									"text/html": new Blob([temp], { type: "text/html" }),
+									"text/plain": new Blob([plainText], { type: "text/plain" }),
+								});
+								await navigator.clipboard.write([clipboardItem]);
+
+								toaster.show((props) => (
+									<Toast toastId={props.toastId}>
+										<ToastContent>复制成功</ToastContent>
+									</Toast>
+								));
+							} catch (error) {
+								console.warn("Clipboard API 錯誤：", error);
+								toaster.show((props) => (
+									<Toast toastId={props.toastId}>
+										<ToastContent>复制失敗</ToastContent>
+									</Toast>
+								));
+							}
 						}
 					}}
 				>
