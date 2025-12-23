@@ -1752,7 +1752,7 @@ dependencies = [
 
 [[package]]
 name = "mp-org"
-version = "0.8.2"
+version = "0.8.3"
 dependencies = [
  "basic-toml",
  "dirs-next",
