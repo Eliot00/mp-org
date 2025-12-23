@@ -1,7 +1,7 @@
 {
   "build": {
-    "beforeDevCommand": "pnpm dev:desktop",
-    "beforeBuildCommand": "pnpm build:desktop",
+    "beforeDevCommand": "bun dev:desktop",
+    "beforeBuildCommand": "bun build:desktop",
     "frontendDist": "../dist",
     "devUrl": "http://localhost:1420"
   },
@@ -18,7 +18,7 @@
   },
   "productName": "mp-org",
   "mainBinaryName": "mp-org",
-  "version": "0.8.3",
+  "version": "0.8.4",
   "identifier": "com.elliot00.mp-org",
   "plugins": {},
   "app": {
