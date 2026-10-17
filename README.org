@@ -5,6 +5,12 @@
 
 ** 使用
 
+*** macOS 安装
+macOS 安装包目前使用 ad-hoc 签名（未经过 Apple 公证）。首次打开若提示「无法验证开发者」或「已损坏」，任选其一：
+
+- 打开「系统设置 → 隐私与安全性」，在底部点击「仍要打开」；
+- 或执行 =xattr -dr com.apple.quarantine /Applications/mp-org.app= 后重新打开。
+
 *** 配置
 mp-org使用 =toml= 文件配置，配置文件位置：
 
@@ -106,6 +112,17 @@ uploader = "/path/to/uploader"
 #+END_SRC
 
 点击「上传本地图片」时，将以 ~uploader <local file path>~ 的形式调用uploader程序，并用 =stdout= 替换原有的本地图片路径。
+
+** 发布
+
+发布新版本时统一修改 =package.json=、=src-tauri/Cargo.toml=、=src-tauri/Cargo.lock=、=src-tauri/tauri.conf.json= 中的版本号，提交 =release: x.y.z= 并推送 tag，GitHub Actions 会自动构建并创建 draft release。
+
+*** macOS 签名与公证
+当前使用 ad-hoc 签名（=bundle.macOS.signingIdentity: "-"=），因此用户首次打开需要手动放行。有 Apple Developer 账号后可切换为正式签名 + 公证：
+
+1. 把 =src-tauri/tauri.conf.json= 中的 =bundle.macOS.signingIdentity= 改成 Developer ID Application 证书名；
+2. 在仓库 Secrets 中配置 =APPLE_CERTIFICATE=、=APPLE_CERTIFICATE_PASSWORD=、=APPLE_SIGNING_IDENTITY=、=APPLE_ID=、=APPLE_PASSWORD=、=APPLE_TEAM_ID=（或 =APPLE_API_KEY= 系列）；
+3. 推送新 tag，CI 会自动完成签名与公证。
 
 ** 相关项目
 
