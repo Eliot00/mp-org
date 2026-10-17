@@ -1,5 +1,5 @@
 // @vitest-environment jsdom
-import { describe, expect, it } from "vitest";
+import { beforeAll, describe, expect, it } from "vitest";
 import { defaultTheme } from "~/assets/theme";
 import { renderOrgToHtml } from "./index";
 
@@ -27,9 +27,15 @@ describe("default theme", () => {
 });
 
 describe("renderOrgToHtml", () => {
-	it("keeps the code block card on a section, not on pre", async () => {
-		const html = await renderOrgToHtml(ORG_WITH_CODE, defaultTheme);
-		const section = codeSection(html ?? "");
+	// Shiki cold-starts slowly on CI runners; render once and reuse.
+	let defaultHtml = "";
+
+	beforeAll(async () => {
+		defaultHtml = (await renderOrgToHtml(ORG_WITH_CODE, defaultTheme)) ?? "";
+	}, 30000);
+
+	it("keeps the code block card on a section, not on pre", () => {
+		const section = codeSection(defaultHtml);
 
 		const sectionStyle = section.getAttribute("style") ?? "";
 		expect(sectionStyle).toContain("background-color");
@@ -43,9 +49,8 @@ describe("renderOrgToHtml", () => {
 		expect(preStyle).not.toContain("undefined");
 	});
 
-	it("encodes code whitespace as <br> and non-breaking spaces", async () => {
-		const html = await renderOrgToHtml(ORG_WITH_CODE, defaultTheme);
-		const code = codeSection(html ?? "").querySelector("code");
+	it("encodes code whitespace as <br> and non-breaking spaces", () => {
+		const code = codeSection(defaultHtml).querySelector("code");
 
 		expect(code).not.toBeNull();
 		expect(code?.querySelectorAll("br")).toHaveLength(1);
@@ -67,5 +72,5 @@ describe("renderOrgToHtml", () => {
 		expect(preStyle).not.toMatch(/20px/);
 		expect(preStyle).not.toMatch(/10px/);
 		expect(preStyle).toMatch(/padding:\s*0/);
-	});
+	}, 30000);
 });
