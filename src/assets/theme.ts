@@ -1,3 +1,10 @@
+// Ported from doocs/md's default (经典) theme.
+// WeChat drops custom properties, `rem` and `color-mix()`, so the theme's
+// variables are resolved to their defaults:
+//   --md-primary-color -> rgba(15, 76, 129, 1)
+//   --foreground       -> #0a0a0a
+//   --md-link-color    -> #576b95
+//   --blockquote-background -> #f7f7f7
 export const defaultTheme = `
 h1 {
     display: table;
@@ -8,7 +15,6 @@ h1 {
     font-size: 1.2em;
     font-weight: bold;
     text-align: center;
-    padding: 0 1em;
 }
 
 h2 {
@@ -40,44 +46,16 @@ h4 {
 }
 
 h5 {
-  margin: 1.5em 8px 0.5em;
-  color: rgba(15, 76, 129, 1);
-  font-size: 1em;
-  font-weight: bold;
+    margin: 1.5em 8px 0.5em;
+    color: rgba(15, 76, 129, 1);
+    font-size: 1em;
+    font-weight: bold;
 }
 
 h6 {
-  margin: 1.5em 8px 0.5em;
-  font-size: 1em;
-  color: rgba(15, 76, 129, 1);
-}
-
-img {
-    text-align: left;
-    line-height: 1.75;
-    font-family: -apple-system-font,BlinkMacSystemFont, Helvetica Neue, PingFang SC, Hiragino Sans GB , Microsoft YaHei UI , Microsoft YaHei ,Arial,sans-serif;
-    font-size: 14px;
-    border-radius: 4px;
-    display: block;
-    margin: 0.1em auto 0.5em;
-    width: 100% !important;
-}
-
-blockquote {
-    font-style: normal;
-    padding: 1em;
-    border-left: 4px solid rgba(15, 76, 129, 1);
-    border-radius: 6px;
-    color: rgba(0,0,0,0.5);
-    background: #f7f7f7;
-    margin-bottom: 1em;
-}
-
-blockquote > p {
-    display: block;
+    margin: 1.5em 8px 0.5em;
     font-size: 1em;
-    letter-spacing: 0.1em;
-    color: #0a0a0a;
+    color: rgba(15, 76, 129, 1);
 }
 
 p {
@@ -86,14 +64,22 @@ p {
     color: #0a0a0a;
 }
 
-hr {
-  border-style: solid;
-  border-width: 2px 0 0;
-  border-color: rgba(0,0,0,0.1);
-  transform-origin: 0 0;
-  transform: scale(1, 0.5);
-  height: 0.4em;
-  margin: 1.5em 0;
+blockquote {
+    margin: 0 0 1em;
+    padding: 1em;
+    border-left: 4px solid rgba(15, 76, 129, 1);
+    border-radius: 6px;
+    color: #0a0a0a;
+    background: #f7f7f7;
+    font-style: normal;
+}
+
+blockquote > p {
+    display: block;
+    margin: 0;
+    font-size: 1em;
+    letter-spacing: 0.1em;
+    color: #0a0a0a;
 }
 
 strong {
@@ -102,34 +88,84 @@ strong {
     font-size: inherit;
 }
 
-/* 样式化有序列表 <ol> */
+em {
+    font-style: italic;
+    font-size: inherit;
+}
+
+a {
+    color: #576b95;
+    text-decoration: none;
+}
+
+del {
+    color: rgba(10, 10, 10, 0.55);
+    text-decoration: line-through;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    margin: 0.1em auto 0.5em;
+    border-radius: 4px;
+}
+
+hr {
+    border-style: solid;
+    border-width: 2px 0 0;
+    border-color: rgba(0,0,0,0.1);
+    transform-origin: 0 0;
+    transform: scale(1, 0.5);
+    height: 0.4em;
+    margin: 1.5em 0;
+}
+
 ol {
-    list-style-type: decimal; /* 使用数字作为列表项标记 */
-    margin: 20px 0;           /* 上下间距 */
-    padding-left: 40px;       /* 左边距 */
-    font-family: Arial, sans-serif; /* 字体 */
-    font-size: 16px;          /* 字体大小 */
-    color: #333;              /* 文字颜色 */
+    margin-left: 0;
+    padding-left: 1em;
+    color: #0a0a0a;
 }
 
-ol li {
-    margin: 8px 0;           /* 列表项的上下间距 */
-}
-
-/* 样式化无序列表 <ul> */
 ul {
-    list-style-type: disc;    /* 使用实心圆作为列表项标记 */
-    margin: 20px 0;           /* 上下间距 */
-    padding-left: 40px;       /* 左边距 */
-    font-family: Arial, sans-serif; /* 字体 */
-    font-size: 16px;          /* 字体大小 */
-    color: #333;              /* 文字颜色 */
+    list-style: circle;
+    margin-left: 0;
+    padding-left: 1em;
+    color: #0a0a0a;
 }
 
-ul li {
-    margin: 8px 0;           /* 列表项的上下间距 */
+li {
+    display: block;
+    margin: 0.2em 8px;
+    color: #0a0a0a;
 }
 
+table {
+    border-collapse: collapse;
+    min-width: 100%;
+    color: #0a0a0a;
+}
+
+thead {
+    font-weight: bold;
+    color: #0a0a0a;
+}
+
+th {
+    border: 1px solid rgba(10, 10, 10, 0.15);
+    padding: 0.25em 0.5em;
+    color: #0a0a0a;
+    word-break: keep-all;
+    background: rgba(10, 10, 10, 0.05);
+}
+
+td {
+    border: 1px solid rgba(10, 10, 10, 0.15);
+    padding: 0.25em 0.5em;
+    color: #0a0a0a;
+    word-break: keep-all;
+}
+
+/* The card box is moved onto the wrapper section for WeChat, see utils/code-block. */
 pre {
     margin: 24px 8px;
     padding: 16px;
@@ -138,16 +174,16 @@ pre {
 }
 
 code:not(pre code) {
-  background-color: rgba(255, 235, 235, 0.6);
-  padding: 0.2em 0.4em;
-  margin: 0;
-  font-size: 85%;
-  border-radius: 6px;
-  font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
-  color: #E05252;
+    padding: 3px 5px;
+    border: 1px solid rgba(15, 76, 129, 0.2);
+    border-radius: 4px;
+    color: rgba(15, 76, 129, 1);
+    background: rgba(15, 76, 129, 0.08);
+    font-size: 90%;
+    font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
 }
 
 [aria-hidden="true"] {
-  display: none;
+    display: none;
 }
 `;
