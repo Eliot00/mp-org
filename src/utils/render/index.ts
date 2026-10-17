@@ -1,5 +1,5 @@
 import rehypeShiki from "@shikijs/rehype";
-import { inlineContent } from "juice";
+import juice from "juice";
 import katex from "rehype-katex";
 import stringify from "rehype-stringify";
 import { unified } from "unified";
@@ -26,7 +26,7 @@ export async function renderOrgToHtml(orgStr: string, theme: string) {
 
 	const vfile = await processor.process(orgStr);
 	const htmlStr = vfile.value.toString();
-	const inlined = inlineContent(htmlStr, theme, {
+	const inlined = juice.inlineContent(htmlStr, theme, {
 		inlinePseudoElements: true,
 	});
 	return applyCodeBlockLayout(inlined);
