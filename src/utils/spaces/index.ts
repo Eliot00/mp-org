@@ -5,7 +5,7 @@ export function insertZeroWidthSpaces(raw: string) {
 
 	// 改进的 Org mode 链接正则表达式
 	const linkRegex =
-		/\[\[(?:[^\[\]]|\[(?!\[)|\](?!\]))*\](?:\[(?:[^\[\]]|\[(?!\[)|\](?!\]))*\])?\]/g;
+		/\[\[(?:[^[\]]|\[(?!\[)|\](?!\]))*\](?:\[(?:[^[\]]|\[(?!\[)|\](?!\]))*\])?\]/g;
 
 	// 替换链接为临时占位符
 	result = result.replace(linkRegex, (match) => {
